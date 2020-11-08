@@ -14,11 +14,14 @@ import {MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { UserCardComponent } from './user-card/user-card.component';
 import {MatChipsModule} from '@angular/material/chips';
+import { UserDetailsComponent } from './modals/user-details/user-details.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import {MatChipsModule} from '@angular/material/chips';
     NavBarComponent,
     FiltersComponent,
     HomeViewComponent,
-    UserCardComponent
+    UserCardComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,10 @@ import {MatChipsModule} from '@angular/material/chips';
     ReactiveFormsModule,
     MatCardModule,
     MatTooltipModule,
-    MatChipsModule
+    MatChipsModule,
+    FormsModule,
+    MatDialogModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

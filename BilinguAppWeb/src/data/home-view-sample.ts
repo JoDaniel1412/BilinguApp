@@ -1,3 +1,4 @@
+import {ICountry, ILanguage} from '../app/models/home-view-models';
 
 export const Learning = [
   {name: 'spanish', level: 'amateur'},
@@ -12,6 +13,17 @@ export const Teaching = [
 ];
 
 export const Countries = ['Japan', 'Costa Rica', 'United States', 'Spain', 'Italy', 'Chile'];
+
+export const User = {
+  name: 'Jess',
+  age: 20,
+  sex: 'female',
+  country: {name: 'United States', iso: ''},
+  hobbies: ['video games', 'movies', 'eat'],
+  contact: ['WhatsApp', 'Skype', 'Meet'],
+  learning: Teaching,
+  teaching: Learning,
+};
 
 export const Users = [
   {name: 'Jose',
