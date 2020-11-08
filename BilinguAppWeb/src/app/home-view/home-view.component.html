@@ -1,4 +1,27 @@
 
+<!-- Filters -->
 <div class="app-filters">
-  <app-filters></app-filters>
+  <!-- Show filters button -->
+  <div class="show-filters-btn" *ngIf="!showFilters">
+    <button mat-fab color="accent" matTooltip="Filters" (click)="showFilters=true">
+      <mat-icon>search</mat-icon>
+    </button>
+  </div>
+
+  <!-- Hide filters button -->
+  <div class="hide-filters-btn" *ngIf="showFilters">
+    <button mat-fab color="accent" matTooltip="Close" (click)="showFilters=false">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <app-filters *ngIf="showFilters"></app-filters>
 </div>
+
+<!-- Users -->
+<ul class="flex-container">
+
+  <li class="flex-item" *ngFor="let user of users">
+    <app-user-card [user]="user"></app-user-card>
+  </li>
+</ul>

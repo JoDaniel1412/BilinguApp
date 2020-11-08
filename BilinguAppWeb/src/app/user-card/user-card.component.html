@@ -1,0 +1,27 @@
+
+<mat-card class="mat-elevation-z8" (click)="userDetails()">
+  <mat-card-header>
+    <mat-card-title>{{user.name}}</mat-card-title>
+    <mat-card-subtitle>{{user.country.name}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+
+    <!-- Learning -->
+    <h3>Learning</h3>
+    <mat-chip-list class="flex-container">
+      <li class="flex-item" *ngFor="let learning of user.learning">
+        <mat-chip>{{learning}}</mat-chip>
+      </li>
+    </mat-chip-list>
+    <br>
+
+    <!-- Teaching -->
+    <h3>Teaching</h3>
+    <mat-chip-list class="flex-container">
+      <li class="flex-item" *ngFor="let teaching of user.teaching">
+        <mat-chip>{{teaching}}</mat-chip>
+      </li>
+    </mat-chip-list>
+    <br>
+  </mat-card-content>
+</mat-card>

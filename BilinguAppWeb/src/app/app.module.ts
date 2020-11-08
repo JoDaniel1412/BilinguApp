@@ -16,13 +16,17 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { UserCardComponent } from './user-card/user-card.component';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     FiltersComponent,
-    HomeViewComponent
+    HomeViewComponent,
+    UserCardComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,9 @@ import {MatCardModule} from '@angular/material/card';
     MatSelectModule,
     MatSliderModule,
     ReactiveFormsModule,
-    MatCardModule
+    MatCardModule,
+    MatTooltipModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

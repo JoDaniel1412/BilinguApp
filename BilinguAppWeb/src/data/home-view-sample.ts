@@ -12,3 +12,30 @@ export const Teaching = [
 ];
 
 export const Countries = ['Japan', 'Costa Rica', 'United States', 'Spain', 'Italy', 'Chile'];
+
+export const Users = [
+  {name: 'Jose',
+    country: {name: 'Costa Rica', iso: ''},
+    learning: ['japanese', 'russian', 'portuguese'],
+    teaching: ['spanish', 'english', 'chinese'],
+  },
+  {name: 'Jose',
+    country: {name: 'United States', iso: ''},
+    learning: ['japanese', 'russian', 'portuguese'],
+    teaching: ['spanish', 'english', 'chinese'],
+  },
+  {name: 'Maria',
+    country: {name: 'Chile', iso: ''},
+    learning: ['japanese', 'russian', 'portuguese'],
+    teaching: ['spanish', 'english', 'chinese'],
+  },
+  {name: 'Juan',
+    country: {name: 'Italy', iso: ''},
+    learning: ['japanese', 'russian', 'portuguese'],
+    teaching: ['spanish', 'english', 'chinese'],
+  },  {name: 'Lucia',
+    country: {name: 'Argentina', iso: ''},
+    learning: ['japanese', 'russian', 'portuguese'],
+    teaching: ['spanish', 'english', 'chinese'],
+  },
+];
