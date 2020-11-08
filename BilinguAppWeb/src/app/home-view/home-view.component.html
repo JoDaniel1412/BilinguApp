@@ -1,0 +1,28 @@
+
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer [mode]="'side'">
+    <app-filters></app-filters>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <!-- Show filters button -->
+    <button mat-fab color="accent" matTooltip="Filters" class="filters-btn"
+            (click)="showFilters=true; drawer.toggle()" *ngIf="!showFilters">
+      <mat-icon>search</mat-icon>
+    </button>
+    <!-- Hide filters button -->
+    <button mat-fab color="accent" matTooltip="Close" class="filters-btn"
+            (click)="showFilters=false; drawer.toggle()" *ngIf="showFilters">
+      <mat-icon>close</mat-icon>
+    </button>
+
+    <!-- Users -->
+    <ul class="flex-container">
+
+      <li class="flex-item" *ngFor="let user of users">
+        <app-user-card [user]="user"></app-user-card>
+      </li>
+    </ul>
+  </mat-drawer-content>
+
+</mat-drawer-container>
