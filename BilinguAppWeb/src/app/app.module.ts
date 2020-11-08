@@ -22,6 +22,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import { UserDetailsComponent } from './modals/user-details/user-details.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -32,25 +34,27 @@ import {MatInputModule} from '@angular/material/input';
     UserCardComponent,
     UserDetailsComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatListModule,
-    MatCheckboxModule,
-    MatSelectModule,
-    MatSliderModule,
-    ReactiveFormsModule,
-    MatCardModule,
-    MatTooltipModule,
-    MatChipsModule,
-    FormsModule,
-    MatDialogModule,
-    MatInputModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatIconModule,
+        MatListModule,
+        MatCheckboxModule,
+        MatSelectModule,
+        MatSliderModule,
+        ReactiveFormsModule,
+        MatCardModule,
+        MatTooltipModule,
+        MatChipsModule,
+        FormsModule,
+        MatDialogModule,
+        MatInputModule,
+        MatGridListModule,
+        MatSidenavModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
