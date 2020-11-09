@@ -14,11 +14,16 @@ export class SignUpComponent implements OnInit {
 
   countries: string[];
   hide = true;
-  sex = ['Male', 'Female', 'Other'];
+  sex: string [];
+  hobbies: string[];
+  contacts: string[];
   step = 0;
 
   constructor(private formBuilder: FormBuilder) {
     this.countries = Countries;
+    this.sex = ['Male', 'Female', 'Other'];
+    this.hobbies = ['Movies', 'Video Games', 'Pets'];
+    this.contacts = ['Skype', 'WhatsApp', 'BilinguApp', 'Person'];
   }
 
   ngOnInit() {

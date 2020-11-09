@@ -3,6 +3,7 @@
 
 <mat-horizontal-stepper #stepper>
 
+  <!-- Sign Up step -->
   <mat-step [stepControl]="firstFormGroup" errorMessage="Missing some fields">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Sign up</ng-template>
@@ -73,22 +74,44 @@
     </form>
   </mat-step>
 
+  <!-- Edit Profile step -->
   <mat-step [stepControl]="secondFormGroup" errorMessage="Missing some fields">
     <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Edit profile</ng-template>
+      <ng-template matStepLabel>Profile</ng-template>
       <br>
 
       <p>
         <mat-accordion class="example-headers-align" multi>
+          <!-- Learning languages -->
           <app-language-panel [title]="'Learning languages'"
                               [expanded]="step === 0"
                               (openEmitter)="setStep(0)">
           </app-language-panel>
           <br>
+          <!-- Teaching languages -->
           <app-language-panel [title]="'Teaching languages'"
                               [expanded]="step === 1"
                               (openEmitter)="setStep(1)">
           </app-language-panel>
+          <br>
+          <!-- Hobbies -->
+          <app-chips-panel [title]="'Hobbies & Interest'"
+                           [placeholder]="'hiking'"
+                           [expanded]="step === 2"
+                           (openEmitter)="setStep(2)"
+                           [editable]="true"
+                           [options]="hobbies">
+          </app-chips-panel>
+          <br>
+          <!-- Contacts -->
+          <app-chips-panel [title]="'Contacts'"
+                           [placeholder]="'facebook'"
+                           [expanded]="step === 3"
+                           (openEmitter)="setStep(3)"
+                           [editable]="true"
+                           [options]="contacts">
+          </app-chips-panel>
+          <br>
         </mat-accordion>
       </p>
 
@@ -96,11 +119,29 @@
         <button mat-raised-button matStepperPrevious color="primary">
           Back
         </button>
-        <button mat-raised-button matStepperNext color="primary">
+        <button mat-raised-button matStepperNext color="primary"
+                *ngIf="step === 3">
           Done
+        </button>
+        <button mat-raised-button color="primary"
+                *ngIf="step < 3" (click)="step = step + 1">
+          Next
         </button>
       </div>
     </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+
+    <div class="footer2">
+      <button mat-raised-button matStepperPrevious color="primary">
+        Go Back
+      </button>
+      <button mat-raised-button matStepperNext color="primary">
+        Go Home
+      </button>
+    </div>
   </mat-step>
 
 </mat-horizontal-stepper>

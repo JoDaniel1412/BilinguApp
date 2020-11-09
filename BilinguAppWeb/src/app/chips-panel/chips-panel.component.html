@@ -1,0 +1,26 @@
+
+<mat-expansion-panel [expanded]="expanded" (opened)="openEmitter.emit()">
+  <mat-expansion-panel-header>
+    <mat-panel-title>{{title}}</mat-panel-title>
+    <mat-panel-description>{{description}}</mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <div>
+    <mat-form-field class="example-chip-list">
+      <mat-chip-list #chipList>
+        <mat-chip *ngFor="let option of options" [selectable]="selectable"
+                  [removable]="removable" (removed)="remove(option)">
+          {{option | lowercase}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="Example: {{placeholder}}"
+               [matChipInputFor]="chipList"
+               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+               [matChipInputAddOnBlur]="addOnBlur"
+               (matChipInputTokenEnd)="add($event)"
+               *ngIf="editable">
+      </mat-chip-list>
+    </mat-form-field>
+  </div>
+
+</mat-expansion-panel>

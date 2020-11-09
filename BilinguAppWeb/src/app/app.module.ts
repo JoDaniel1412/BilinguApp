@@ -37,6 +37,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import {MatNativeDateModule} from '@angular/material/core';
 import { LanguagePanelComponent } from './language-panel/language-panel.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { ChipsPanelComponent } from './chips-panel/chips-panel.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     AdminViewComponent,
     AuthComponent,
     SignUpComponent,
-    LanguagePanelComponent
+    LanguagePanelComponent,
+    ChipsPanelComponent
   ],
     imports: [
         BrowserModule,
