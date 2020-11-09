@@ -35,25 +35,12 @@
       <p>
         <mat-form-field appearance="fill" class="mat-form-field">
           <mat-label>Birth Date</mat-label>
-          <input matInput formControlName="birthDate" [matDatepicker]="birthDate">
+          <input matInput formControlName="birthDate"
+                 [matDatepicker]="birthDate" (focus)="birthDate.open()">
           <mat-datepicker-toggle matSuffix [for]="birthDate"></mat-datepicker-toggle>
           <mat-datepicker #birthDate></mat-datepicker>
         </mat-form-field>
       </p>
-
-      <div class="footer">
-        <button mat-raised-button matStepperNext
-                color="primary" class="end-btn">
-          Next
-        </button>
-      </div>
-    </form>
-  </mat-step>
-
-  <mat-step [stepControl]="secondFormGroup" errorMessage="Missing some fields">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Edit profile</ng-template>
-      <br>
 
       <p>
         <mat-form-field appearance="fill">
@@ -77,6 +64,33 @@
         </mat-form-field>
       </p>
 
+      <div class="footer">
+        <button mat-raised-button matStepperNext
+                color="primary" class="end-btn">
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup" errorMessage="Missing some fields">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Edit profile</ng-template>
+      <br>
+
+      <p>
+        <mat-accordion class="example-headers-align" multi>
+          <app-language-panel [title]="'Learning languages'"
+                              [expanded]="step === 0"
+                              (openEmitter)="setStep(0)">
+          </app-language-panel>
+          <br>
+          <app-language-panel [title]="'Teaching languages'"
+                              [expanded]="step === 1"
+                              (openEmitter)="setStep(1)">
+          </app-language-panel>
+        </mat-accordion>
+      </p>
 
       <div class="footer2">
         <button mat-raised-button matStepperPrevious color="primary">

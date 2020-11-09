@@ -35,6 +35,8 @@ import { AuthComponent } from './auth/auth.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import {MatNativeDateModule} from '@angular/material/core';
+import { LanguagePanelComponent } from './language-panel/language-panel.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -47,36 +49,38 @@ import {MatNativeDateModule} from '@angular/material/core';
     TableComponent,
     AdminViewComponent,
     AuthComponent,
-    SignUpComponent
+    SignUpComponent,
+    LanguagePanelComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatListModule,
-    MatCheckboxModule,
-    MatSelectModule,
-    MatSliderModule,
-    ReactiveFormsModule,
-    MatCardModule,
-    MatTooltipModule,
-    MatChipsModule,
-    FormsModule,
-    MatDialogModule,
-    MatInputModule,
-    MatGridListModule,
-    MatSidenavModule,
-    MatDatepickerModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    HttpClientModule,
-    MatStepperModule,
-    MatNativeDateModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatIconModule,
+        MatListModule,
+        MatCheckboxModule,
+        MatSelectModule,
+        MatSliderModule,
+        ReactiveFormsModule,
+        MatCardModule,
+        MatTooltipModule,
+        MatChipsModule,
+        FormsModule,
+        MatDialogModule,
+        MatInputModule,
+        MatGridListModule,
+        MatSidenavModule,
+        MatDatepickerModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        HttpClientModule,
+        MatStepperModule,
+        MatNativeDateModule,
+        MatExpansionModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

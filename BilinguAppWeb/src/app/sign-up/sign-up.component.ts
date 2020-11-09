@@ -15,6 +15,7 @@ export class SignUpComponent implements OnInit {
   countries: string[];
   hide = true;
   sex = ['Male', 'Female', 'Other'];
+  step = 0;
 
   constructor(private formBuilder: FormBuilder) {
     this.countries = Countries;
@@ -26,11 +27,15 @@ export class SignUpComponent implements OnInit {
       email: ['', Validators.required],
       password: ['', Validators.required],
       birthDate: ['', Validators.required],
-    });
-    this.secondFormGroup = this.formBuilder.group({
       country: ['', Validators.required],
       sex: ['', Validators.required]
     });
+    this.secondFormGroup = this.formBuilder.group({
+    });
+  }
+
+  setStep(index: number) {
+    this.step = index;
   }
 
 }
