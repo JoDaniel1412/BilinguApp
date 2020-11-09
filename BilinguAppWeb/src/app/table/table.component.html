@@ -1,0 +1,85 @@
+<!-- Header -->
+<mat-card class="mat-elevation-z8">
+  <mat-grid-list cols="10">
+    <mat-grid-tile [colspan]="getTittleCols()">
+      <span class="title">{{title}}</span>
+    </mat-grid-tile>
+
+    <!-- Options -->
+    <mat-grid-tile [colspan]="2" *ngIf="!hasFilter"></mat-grid-tile>
+    <mat-grid-tile [colspan]="2" *ngIf="hasFilter">
+      <mat-form-field appearance="fill">
+        <mat-label> {{filterName}} </mat-label>
+        <mat-select [(value)]="filterSelected">
+          <mat-option *ngFor="let option of filterOptions"
+                      [value]="option"
+                      (onSelectionChange)="emitChanges()">
+            {{option}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <!-- Start Date -->
+    <mat-grid-tile [colspan]="2" *ngIf="hasDate">
+      <mat-form-field color="accent" appearance="fill">
+        <mat-label>From</mat-label>
+        <input matInput
+               [matDatepicker]="startDate"
+               [formControl]="notToday"
+               (dateChange)="startDateChange($event)">
+        <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+        <mat-datepicker #startDate></mat-datepicker>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <!-- End Date -->
+    <mat-grid-tile [colspan]="2" *ngIf="hasDate">
+      <mat-form-field color="accent" appearance="fill">
+        <mat-label>To</mat-label>
+        <input matInput
+               [matDatepicker]="endDate"
+               [formControl]="today"
+               (dateChange)="endDateChange($event)">
+        <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+        <mat-datepicker #endDate color="primary"></mat-datepicker>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <!-- Refresh Data -->
+    <mat-grid-tile [colspan]="1" *ngIf="!hasDate && !hasFilter">
+      <button mat-icon-button matTooltip="Refresh" (click)="emitChanges()">
+        <mat-icon>refresh</mat-icon>
+      </button>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+  <mat-form-field>
+    <mat-label>Search</mat-label>
+    <label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+    </label>
+  </mat-form-field>
+
+  <!-- Data -->
+  <div>
+    <mat-table [dataSource]="dataSource" matSort>
+
+      <ng-container *ngFor="let col of displayedColumns; index as i" matColumnDef="{{col}}">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{col | titlecase}} </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{getKeyFromObject(row, i)}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="rowsPerPage"></mat-paginator>
+  </div>
+</mat-card>

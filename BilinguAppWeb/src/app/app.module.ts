@@ -24,6 +24,13 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { TableComponent } from './table/table.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { AdminViewComponent } from './admin-view/admin-view.component';
+import {MatSortModule} from '@angular/material/sort';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,29 +39,36 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     FiltersComponent,
     HomeViewComponent,
     UserCardComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    TableComponent,
+    AdminViewComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatIconModule,
-        MatListModule,
-        MatCheckboxModule,
-        MatSelectModule,
-        MatSliderModule,
-        ReactiveFormsModule,
-        MatCardModule,
-        MatTooltipModule,
-        MatChipsModule,
-        FormsModule,
-        MatDialogModule,
-        MatInputModule,
-        MatGridListModule,
-        MatSidenavModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    MatSliderModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatTooltipModule,
+    MatChipsModule,
+    FormsModule,
+    MatDialogModule,
+    MatInputModule,
+    MatGridListModule,
+    MatSidenavModule,
+    MatDatepickerModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
