@@ -134,13 +134,30 @@
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
 
+    <div class="spinner-container">
+      <mat-progress-spinner mode="indeterminate"
+                            *ngIf="!authSuccess && !authError">
+      </mat-progress-spinner>
+      <mat-icon class="check" color="primary"
+                *ngIf="authSuccess" [inline]="true">
+        check_circle_outline
+      </mat-icon>
+      <mat-icon class="check" color="primary"
+                *ngIf="authError" [inline]="true">
+        error_outline
+      </mat-icon>
+    </div>
+
     <div class="footer2">
-      <button mat-raised-button matStepperPrevious color="primary">
+      <button mat-raised-button matStepperPrevious color="primary"
+              *ngIf="authError">
         Go Back
       </button>
-      <button mat-raised-button matStepperNext color="primary">
+      <button mat-raised-button color="primary"
+              *ngIf="authSuccess" (click)="goHome()">
         Go Home
       </button>
+      <h4 *ngIf="!authSuccess && !authError">Please wait...</h4>
     </div>
   </mat-step>
 

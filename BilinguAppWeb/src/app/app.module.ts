@@ -38,6 +38,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { LanguagePanelComponent } from './language-panel/language-panel.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ChipsPanelComponent } from './chips-panel/chips-panel.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -54,35 +55,36 @@ import { ChipsPanelComponent } from './chips-panel/chips-panel.component';
     LanguagePanelComponent,
     ChipsPanelComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatIconModule,
-        MatListModule,
-        MatCheckboxModule,
-        MatSelectModule,
-        MatSliderModule,
-        ReactiveFormsModule,
-        MatCardModule,
-        MatTooltipModule,
-        MatChipsModule,
-        FormsModule,
-        MatDialogModule,
-        MatInputModule,
-        MatGridListModule,
-        MatSidenavModule,
-        MatDatepickerModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatSortModule,
-        HttpClientModule,
-        MatStepperModule,
-        MatNativeDateModule,
-        MatExpansionModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    MatSliderModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatTooltipModule,
+    MatChipsModule,
+    FormsModule,
+    MatDialogModule,
+    MatInputModule,
+    MatGridListModule,
+    MatSidenavModule,
+    MatDatepickerModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    HttpClientModule,
+    MatStepperModule,
+    MatNativeDateModule,
+    MatExpansionModule,
+    MatProgressSpinnerModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Countries} from '../../data/home-view-sample';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -17,9 +18,13 @@ export class SignUpComponent implements OnInit {
   sex: string [];
   hobbies: string[];
   contacts: string[];
-  step = 0;
 
-  constructor(private formBuilder: FormBuilder) {
+  step = 0;
+  authSuccess = false;
+  authError = false;
+
+  constructor(private formBuilder: FormBuilder,
+              private router: Router) {
     this.countries = Countries;
     this.sex = ['Male', 'Female', 'Other'];
     this.hobbies = ['Movies', 'Video Games', 'Pets'];
@@ -43,4 +48,7 @@ export class SignUpComponent implements OnInit {
     this.step = index;
   }
 
+  goHome() {
+    this.router.navigate(['/home']);
+  }
 }
