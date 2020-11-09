@@ -88,4 +88,12 @@ export class TableComponent implements AfterViewInit  {
     });
     return arr[i];
   }
+
+  getTittleCols() {
+    let cols = 3;
+    if (!this.hasDate && !this.hasFilter) {
+      cols = 7;
+    }
+    return cols;
+  }
 }

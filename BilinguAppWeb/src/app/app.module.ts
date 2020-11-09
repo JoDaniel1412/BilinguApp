@@ -28,6 +28,8 @@ import { TableComponent } from './table/table.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { AdminViewComponent } from './admin-view/admin-view.component';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     HomeViewComponent,
     UserCardComponent,
     UserDetailsComponent,
-    TableComponent
+    TableComponent,
+    AdminViewComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatSidenavModule,
     MatDatepickerModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
