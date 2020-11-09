@@ -8,18 +8,18 @@
                [dataSource]="usersOrigin"
                [displayedColumns]="usersOriginCols"
                [hasDate]="false"
-               (filterEmitter)="fetchUsersOrigin($event)">
+               (filterEmitter)="fetchUsersOrigin()">
     </app-table>
   </li>
 
   <!-- Users per country -->
   <li class="flex-table-md">
     <app-table #UsersPerCountry
-               [title]="'Users per country'"
+               [title]="'Users/Country'"
                [dataSource]="usersPerCountry"
                [displayedColumns]="usersPerCountryCols"
                [hasDate]="false"
-               (filterEmitter)="fetchUsersPerCountry($event)">
+               (filterEmitter)="fetchUsersPerCountry()">
     </app-table>
   </li>
 
@@ -30,7 +30,7 @@
                [dataSource]="usersLearning"
                [displayedColumns]="usersLearningCols"
                [hasDate]="false"
-               (filterEmitter)="fetchUsersLearning($event)">
+               (filterEmitter)="fetchUsersLearning()">
     </app-table>
   </li>
 
@@ -41,7 +41,7 @@
                [dataSource]="usersTeaching"
                [displayedColumns]="usersTeachingCols"
                [hasDate]="false"
-               (filterEmitter)="fetchUsersTeaching($event)">
+               (filterEmitter)="fetchUsersTeaching()">
     </app-table>
   </li>
 </ul>

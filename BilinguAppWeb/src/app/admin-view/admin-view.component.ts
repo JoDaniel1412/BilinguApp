@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {IUsersLanguage, IUsersOrigin, IUsersPerCountry} from '../models/admin-view-models';
 import {MatTableDataSource} from '@angular/material/table';
 import {UsersLearning, UsersOrigin, UsersPerCountry, UsersTeaching} from '../../data/admin-view-sample';
+import {AdminViewService} from '../services/admin-view.service';
 
 @Component({
   selector: 'app-admin-view',
@@ -20,28 +21,41 @@ export class AdminViewComponent implements OnInit {
   usersLearningCols = ['Country', '#Users'];
   usersTeachingCols = ['Country', '#Users'];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private adminViewService: AdminViewService) {
     this.usersOrigin = new MatTableDataSource<IUsersOrigin>(UsersOrigin);
     this.usersPerCountry = new MatTableDataSource<IUsersPerCountry>(UsersPerCountry);
     this.usersLearning = new MatTableDataSource<IUsersLanguage>(UsersLearning);
     this.usersTeaching = new MatTableDataSource<IUsersLanguage>(UsersTeaching);
   }
 
-  fetchUsersOrigin($event: { startDate: Date; endDate: Date; options?: string }) {
-
+  ngOnInit(): void {
+    this.fetchUsersOrigin();
+    this.fetchUsersPerCountry();
+    this.fetchUsersLearning();
+    this.fetchUsersTeaching();
   }
 
-  fetchUsersPerCountry($event: { startDate: Date; endDate: Date; options?: string }) {
-
+  fetchUsersOrigin() {
+    this.adminViewService.getUsersOrigin().subscribe(data => {
+      this.usersOrigin.data = data;
+    });
   }
 
-  fetchUsersLearning($event: { startDate: Date; endDate: Date; options?: string }) {
-
+  fetchUsersPerCountry() {
+    this.adminViewService.getUsersPerCountry().subscribe(data => {
+      this.usersPerCountry.data = data;
+    });
   }
 
-  fetchUsersTeaching($event: { startDate: Date; endDate: Date; options?: string }) {
+  fetchUsersLearning() {
+    this.adminViewService.getUsersLearning().subscribe(data => {
+      this.usersLearning.data = data;
+    });
+  }
 
+  fetchUsersTeaching() {
+    this.adminViewService.getUsersTeaching().subscribe(data => {
+      this.usersTeaching.data = data;
+    });
   }
 }

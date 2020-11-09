@@ -30,6 +30,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { AdminViewComponent } from './admin-view/admin-view.component';
 import {MatSortModule} from '@angular/material/sort';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import {MatSortModule} from '@angular/material/sort';
     MatDatepickerModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
