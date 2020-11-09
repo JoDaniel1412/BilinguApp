@@ -1,0 +1,94 @@
+
+<mat-card class="mat-elevation-z8">
+
+<mat-horizontal-stepper #stepper>
+
+  <mat-step [stepControl]="firstFormGroup" errorMessage="Missing some fields">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Sign up</ng-template>
+      <br>
+
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="First name" formControlName="name" required>
+          <mat-icon matSuffix>account_circle</mat-icon>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="email@example.com" formControlName="email" required>
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'"
+                 placeholder="********" formControlName="password" required>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill" class="mat-form-field">
+          <mat-label>Birth Date</mat-label>
+          <input matInput formControlName="birthDate" [matDatepicker]="birthDate">
+          <mat-datepicker-toggle matSuffix [for]="birthDate"></mat-datepicker-toggle>
+          <mat-datepicker #birthDate></mat-datepicker>
+        </mat-form-field>
+      </p>
+
+      <div class="footer">
+        <button mat-raised-button matStepperNext
+                color="primary" class="end-btn">
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup" errorMessage="Missing some fields">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Edit profile</ng-template>
+      <br>
+
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Country</mat-label>
+          <mat-select formControlName="country" required>
+            <mat-option *ngFor="let country of countries" [value]="country">
+              {{country}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Sex</mat-label>
+          <mat-select formControlName="sex" required>
+            <mat-option *ngFor="let value of sex" [value]="value">
+              {{value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+
+
+      <div class="footer2">
+        <button mat-raised-button matStepperPrevious color="primary">
+          Back
+        </button>
+        <button mat-raised-button matStepperNext color="primary">
+          Done
+        </button>
+      </div>
+    </form>
+  </mat-step>
+
+</mat-horizontal-stepper>
+
+</mat-card>

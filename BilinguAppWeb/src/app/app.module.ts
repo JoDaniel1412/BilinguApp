@@ -31,6 +31,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { AdminViewComponent } from './admin-view/admin-view.component';
 import {MatSortModule} from '@angular/material/sort';
 import {HttpClientModule} from '@angular/common/http';
+import { AuthComponent } from './auth/auth.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,9 @@ import {HttpClientModule} from '@angular/common/http';
     UserCardComponent,
     UserDetailsComponent,
     TableComponent,
-    AdminViewComponent
+    AdminViewComponent,
+    AuthComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +74,8 @@ import {HttpClientModule} from '@angular/common/http';
     MatPaginatorModule,
     MatSortModule,
     HttpClientModule,
+    MatStepperModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
