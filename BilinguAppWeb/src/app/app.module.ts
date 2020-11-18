@@ -39,6 +39,8 @@ import { LanguagePanelComponent } from './language-panel/language-panel.componen
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ChipsPanelComponent } from './chips-panel/chips-panel.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LogInComponent } from './log-in/log-in.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -53,38 +55,40 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     AuthComponent,
     SignUpComponent,
     LanguagePanelComponent,
-    ChipsPanelComponent
+    ChipsPanelComponent,
+    LogInComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatListModule,
-    MatCheckboxModule,
-    MatSelectModule,
-    MatSliderModule,
-    ReactiveFormsModule,
-    MatCardModule,
-    MatTooltipModule,
-    MatChipsModule,
-    FormsModule,
-    MatDialogModule,
-    MatInputModule,
-    MatGridListModule,
-    MatSidenavModule,
-    MatDatepickerModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    HttpClientModule,
-    MatStepperModule,
-    MatNativeDateModule,
-    MatExpansionModule,
-    MatProgressSpinnerModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatIconModule,
+        MatListModule,
+        MatCheckboxModule,
+        MatSelectModule,
+        MatSliderModule,
+        ReactiveFormsModule,
+        MatCardModule,
+        MatTooltipModule,
+        MatChipsModule,
+        FormsModule,
+        MatDialogModule,
+        MatInputModule,
+        MatGridListModule,
+        MatSidenavModule,
+        MatDatepickerModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        HttpClientModule,
+        MatStepperModule,
+        MatNativeDateModule,
+        MatExpansionModule,
+        MatProgressSpinnerModule,
+        MatTabsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
