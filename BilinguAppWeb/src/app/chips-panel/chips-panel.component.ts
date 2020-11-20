@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import {ILanguage} from '../models/home-view-models';
 
 @Component({
   selector: 'app-chips-panel',
@@ -17,6 +18,7 @@ export class ChipsPanelComponent implements OnInit {
   @Input() placeholder = 'example';
 
   @Output() openEmitter = new EventEmitter();
+  @Output() formEmitter = new EventEmitter<string[]>();
 
   visible = true;
   selectable: boolean;
@@ -29,6 +31,7 @@ export class ChipsPanelComponent implements OnInit {
   ngOnInit(): void {
     this.removable = this.editable;
     this.selectable = this.editable;
+    this.formEmitter.emit(this.options);
   }
 
   add(event: MatChipInputEvent): void {
@@ -44,6 +47,7 @@ export class ChipsPanelComponent implements OnInit {
     if (input) {
       input.value = '';
     }
+    this.formEmitter.emit(this.options);
   }
 
   remove(option: string): void {
@@ -52,6 +56,7 @@ export class ChipsPanelComponent implements OnInit {
     if (index >= 0) {
       this.options.splice(index, 1);
     }
+    this.formEmitter.emit(this.options);
   }
 
 }

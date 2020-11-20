@@ -7,8 +7,9 @@ export interface IUserSimplify {
 }
 
 export interface IUserDetailed {
+  uid: string;
   name: string;
-  age: number;
+  age: string;
   sex: string;
   country: ICountry;
   hobbies: string[];

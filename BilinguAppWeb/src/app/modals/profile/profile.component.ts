@@ -28,4 +28,10 @@ export class ProfileComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  calculateAge(birthday: string) {
+    const today = new Date();
+    const date = new Date(birthday);
+    return today.getFullYear() - date.getFullYear();
+  }
 }

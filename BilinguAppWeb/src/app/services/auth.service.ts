@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {AngularFireAuth} from '@angular/fire/auth';
+import {IUserDetailed} from '../models/home-view-models';
 
 /**
  * Service that manages sign and log in of users
@@ -47,13 +48,15 @@ export class AuthService {
     }
   }
 
-  async createAccount(email: string, password: string) {
+  async createAccount(email: string, password: string, userData: IUserDetailed) {
     try {
       if (!email || !password) {
         throw new Error('Invalid email and/or password');
       }
+      // Create user on firebase
       await this.auth.createUserWithEmailAndPassword(email, password);
-      return true;
+      // Create user on mongo
+      return false;
     } catch (error) {
       console.log('Sign up failed', error);
       return false;

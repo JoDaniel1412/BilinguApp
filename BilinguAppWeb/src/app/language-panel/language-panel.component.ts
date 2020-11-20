@@ -15,6 +15,7 @@ export class LanguagePanelComponent implements OnInit {
   @Input() expanded = false;
 
   @Output() openEmitter = new EventEmitter();
+  @Output() formEmitter = new EventEmitter< ILanguage[]>();
 
   language: ILanguage[];
   formGroup: FormGroup;
@@ -30,6 +31,7 @@ export class LanguagePanelComponent implements OnInit {
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group(this.controlConfig());
+    this.updatedForm();
   }
 
   AddRemoveFields(value: number) {
@@ -38,6 +40,13 @@ export class LanguagePanelComponent implements OnInit {
     if (this.fields < 1) { this.fields = 1; }
 
     this.formGroup = this.formBuilder.group(this.controlConfig());
+    this.updatedForm();
+  }
+
+  updatedForm() {
+    this.formGroup.valueChanges.subscribe(value => {
+      this.formEmitter.emit(this.formatGroup(value));
+    });
   }
 
   arrayOne(n: number): any[] {
@@ -73,6 +82,18 @@ export class LanguagePanelComponent implements OnInit {
         break;
     }
     return config;
+  }
+
+  formatGroup(value: any) {
+    const result: ILanguage[] = [];
+    result.push({name: value.language0, level: value.level0});
+    if (this.fields > 1) {
+      result.push({name: value.language1, level: value.level1});
+    }
+    if (this.fields > 2) {
+      result.push({name: value.language2, level: value.level2});
+    }
+    return result;
   }
 
 }

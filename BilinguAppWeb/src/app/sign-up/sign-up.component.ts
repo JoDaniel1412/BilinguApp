@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Countries} from '../../data/home-view-sample';
 import {Router} from '@angular/router';
+import {ILanguage, IUserDetailed} from '../models/home-view-models';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -12,6 +14,10 @@ export class SignUpComponent implements OnInit {
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  learningLanguage: ILanguage[];
+  teachingLanguage: ILanguage[];
+  hobbiesFormGroup: string[];
+  contactsFormGroup: string[];
 
   countries: string[];
   hide = true;
@@ -24,9 +30,12 @@ export class SignUpComponent implements OnInit {
   authError = false;
 
   constructor(private formBuilder: FormBuilder,
-              private router: Router) {
+              private router: Router,
+              private authService: AuthService) {
     this.countries = Countries;
-    this.sex = ['Male', 'Female', 'Other'];
+    this.sex = ['Male', 'Female', 'Unspecified'];
+    this.learningLanguage = [];
+    this.teachingLanguage = [];
     this.hobbies = ['Movies', 'Video Games', 'Pets'];
     this.contacts = ['Skype', 'WhatsApp', 'BilinguApp', 'Person'];
   }
@@ -40,8 +49,7 @@ export class SignUpComponent implements OnInit {
       country: ['', Validators.required],
       sex: ['', Validators.required]
     });
-    this.secondFormGroup = this.formBuilder.group({
-    });
+    this.secondFormGroup = this.formBuilder.group({});
   }
 
   setStep(index: number) {
@@ -50,5 +58,44 @@ export class SignUpComponent implements OnInit {
 
   goHome() {
     this.router.navigate(['/home']);
+  }
+
+  async createAccount() {
+    const userFF = this.firstFormGroup.getRawValue();
+    const user: IUserDetailed = {
+      uid: '',
+      age: userFF.birthDate,
+      country: userFF.country,
+      name: userFF.name,
+      sex: userFF.sex,
+      learning: this.learningLanguage,
+      teaching: this.teachingLanguage,
+      contact: this.contactsFormGroup,
+      hobbies: this.hobbiesFormGroup
+    };
+
+    try {
+      this.authError = false;
+      const result = await this.authService.createAccount(userFF.email, userFF.password, user);
+      console.log('create account', result);
+      if (result) { await this.signIn(userFF.email, userFF.password); }
+      else { throw new Error('Sign-up failed'); }
+    } catch (error) {
+      console.log(error);
+      this.authError = true;
+    }
+  }
+
+  async signIn(email: string, password: string) {
+    try {
+      this.authSuccess = false;
+      const result = await this.authService.signIn(email, password);
+      console.log('sign in', result);
+      if (result) { this.authSuccess = true; }
+      else { throw new Error('Sign-in failed'); }
+    } catch (error) {
+      console.log(error);
+      this.authError = true;
+    }
   }
 }

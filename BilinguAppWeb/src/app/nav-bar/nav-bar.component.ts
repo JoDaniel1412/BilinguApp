@@ -1,7 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../services/auth.service';
-import {UserDetailsComponent} from '../modals/user-details/user-details.component';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {IUserDetailed} from '../models/home-view-models';
 import {User} from '../../data/home-view-sample';

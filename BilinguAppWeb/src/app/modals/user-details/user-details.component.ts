@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {IUserDetailed} from '../../models/home-view-models';
 
@@ -20,4 +20,9 @@ export class UserDetailsComponent {
     this.dialogRef.close();
   }
 
+  calculateAge(birthday: string) {
+    const today = new Date();
+    const date = new Date(birthday);
+    return today.getFullYear() - date.getFullYear();
+  }
 }

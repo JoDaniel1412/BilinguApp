@@ -1,5 +1,5 @@
 
-<mat-horizontal-stepper #stepper>
+<mat-horizontal-stepper #stepper linear>
 
   <!-- Sign Up step -->
   <mat-step [stepControl]="firstFormGroup" errorMessage="Missing some fields">
@@ -83,13 +83,15 @@
           <!-- Learning languages -->
           <app-language-panel [title]="'Learning languages'"
                               [expanded]="step === 0"
-                              (openEmitter)="setStep(0)">
+                              (openEmitter)="setStep(0)"
+                              (formEmitter)="learningLanguage = $event">
           </app-language-panel>
           <br>
           <!-- Teaching languages -->
           <app-language-panel [title]="'Teaching languages'"
                               [expanded]="step === 1"
-                              (openEmitter)="setStep(1)">
+                              (openEmitter)="setStep(1)"
+                              (formEmitter)="teachingLanguage = $event">
           </app-language-panel>
           <br>
           <!-- Hobbies -->
@@ -98,7 +100,8 @@
                            [expanded]="step === 2"
                            (openEmitter)="setStep(2)"
                            [editable]="true"
-                           [options]="hobbies">
+                           [options]="hobbies"
+                           (formEmitter)="hobbiesFormGroup = $event">
           </app-chips-panel>
           <br>
           <!-- Contacts -->
@@ -107,7 +110,8 @@
                            [expanded]="step === 3"
                            (openEmitter)="setStep(3)"
                            [editable]="true"
-                           [options]="contacts">
+                           [options]="contacts"
+                           (formEmitter)="contactsFormGroup = $event">
           </app-chips-panel>
           <br>
         </mat-accordion>
@@ -118,7 +122,7 @@
           Back
         </button>
         <button mat-raised-button matStepperNext color="primary"
-                *ngIf="step === 3">
+                *ngIf="step === 3" (click)="createAccount()">
           Done
         </button>
         <button mat-raised-button color="primary"
