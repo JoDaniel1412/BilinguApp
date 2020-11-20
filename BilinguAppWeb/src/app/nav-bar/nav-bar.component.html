@@ -9,7 +9,7 @@
   <span class="spacer"></span>
 
   <button mat-icon-button matTooltip="User"
-          [matMenuTriggerFor]="user" *ngIf="authService.authState">
+          [matMenuTriggerFor]="user" *ngIf="isUser()">
     <mat-icon>account_circle</mat-icon>
   </button>
   <mat-menu #user="matMenu">

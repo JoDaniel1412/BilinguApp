@@ -13,12 +13,14 @@ import {AngularFireAuth} from '@angular/fire/auth';
 export class AuthService {
 
   public signedIn: Observable<any>;
-  public authState: boolean;
+  public authState = false;
 
   constructor(public auth: AngularFireAuth) {
-    this.authState = false;
     this.signedIn = new Observable((subscriber) => {
       this.auth.onAuthStateChanged(subscriber);
+    });
+    this.signedIn.subscribe(user => {
+      if (user) { this.authState = true; }
     });
   }
 
@@ -28,7 +30,6 @@ export class AuthService {
         throw new Error('Invalid email and/or password');
       }
       await this.auth.signInWithEmailAndPassword(email, password);
-      this.authState = true;
       return true;
     } catch (error) {
       console.log('Sign in failed', error);
@@ -39,7 +40,6 @@ export class AuthService {
   async signOut() {
     try {
       await this.auth.signOut();
-      this.authState = false;
       return true;
     } catch (error) {
       console.log('Sign out failed', error);

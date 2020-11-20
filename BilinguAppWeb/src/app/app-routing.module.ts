@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {HomeViewComponent} from './home-view/home-view.component';
 import {AdminViewComponent} from './admin-view/admin-view.component';
 import {AuthComponent} from './auth/auth.component';
-import {ProfileComponent} from './profile/profile.component';
+import {ProfileComponent} from './modals/profile/profile.component';
 
 
 const routes: Routes = [

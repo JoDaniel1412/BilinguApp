@@ -44,7 +44,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {environment} from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import {MatMenuModule} from '@angular/material/menu';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './modals/profile/profile.component';
 
 @NgModule({
   declarations: [
