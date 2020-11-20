@@ -1,0 +1,36 @@
+
+<!-- Header -->
+<h1 mat-dialog-title>{{user.name}} - {{user.age}}</h1>
+<h4>{{user.sex | titlecase}} - {{user.country.name}}</h4>
+
+<!-- Content -->
+<mat-dialog-content>
+  <!-- Hobbies -->
+  <app-chips-panel [title]="'Hobbies & Interest'"
+                   [placeholder]="'hiking'"
+                   [expanded]="step === 0"
+                   (openEmitter)="setStep(0)"
+                   [editable]="true"
+                   [options]="hobbies">
+  </app-chips-panel>
+  <br>
+  <!-- Contacts -->
+  <app-chips-panel [title]="'Contacts'"
+                   [placeholder]="'facebook'"
+                   [expanded]="step === 1"
+                   (openEmitter)="setStep(1)"
+                   [editable]="true"
+                   [options]="contacts">
+  </app-chips-panel>
+  <br>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-icon-button color="primary" matTooltip="Save">
+    <mat-icon>save</mat-icon>
+  </button>
+  <button mat-icon-button color="warn" matTooltip="Close"
+          (click)="onNoClick()">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-dialog-actions>

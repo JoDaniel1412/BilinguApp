@@ -31,6 +31,20 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { AdminViewComponent } from './admin-view/admin-view.component';
 import {MatSortModule} from '@angular/material/sort';
 import {HttpClientModule} from '@angular/common/http';
+import { AuthComponent } from './auth/auth.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import {MatNativeDateModule} from '@angular/material/core';
+import { LanguagePanelComponent } from './language-panel/language-panel.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { ChipsPanelComponent } from './chips-panel/chips-panel.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LogInComponent } from './log-in/log-in.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {environment} from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import {MatMenuModule} from '@angular/material/menu';
+import { ProfileComponent } from './modals/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +55,13 @@ import {HttpClientModule} from '@angular/common/http';
     UserCardComponent,
     UserDetailsComponent,
     TableComponent,
-    AdminViewComponent
+    AdminViewComponent,
+    AuthComponent,
+    SignUpComponent,
+    LanguagePanelComponent,
+    ChipsPanelComponent,
+    LogInComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +88,13 @@ import {HttpClientModule} from '@angular/common/http';
     MatPaginatorModule,
     MatSortModule,
     HttpClientModule,
+    MatStepperModule,
+    MatNativeDateModule,
+    MatExpansionModule,
+    MatProgressSpinnerModule,
+    MatTabsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

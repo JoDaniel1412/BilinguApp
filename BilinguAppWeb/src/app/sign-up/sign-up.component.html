@@ -1,0 +1,162 @@
+
+<mat-horizontal-stepper #stepper>
+
+  <!-- Sign Up step -->
+  <mat-step [stepControl]="firstFormGroup" errorMessage="Missing some fields">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Sign up</ng-template>
+      <br>
+
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="First name" formControlName="name" required>
+          <mat-icon matSuffix>account_circle</mat-icon>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="email@example.com" formControlName="email" required>
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'"
+                 placeholder="********" formControlName="password" required>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill" class="mat-form-field">
+          <mat-label>Birth Date</mat-label>
+          <input matInput formControlName="birthDate"
+                 [matDatepicker]="birthDate" (focus)="birthDate.open()">
+          <mat-datepicker-toggle matSuffix [for]="birthDate"></mat-datepicker-toggle>
+          <mat-datepicker #birthDate></mat-datepicker>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Country</mat-label>
+          <mat-select formControlName="country" required>
+            <mat-option *ngFor="let country of countries" [value]="country">
+              {{country}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Sex</mat-label>
+          <mat-select formControlName="sex" required>
+            <mat-option *ngFor="let value of sex" [value]="value">
+              {{value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+
+      <div class="footer">
+        <button mat-raised-button matStepperNext
+                color="primary" class="end-btn">
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- Edit Profile step -->
+  <mat-step [stepControl]="secondFormGroup" errorMessage="Missing some fields">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Profile</ng-template>
+      <br>
+
+      <p>
+        <mat-accordion class="example-headers-align" multi>
+          <!-- Learning languages -->
+          <app-language-panel [title]="'Learning languages'"
+                              [expanded]="step === 0"
+                              (openEmitter)="setStep(0)">
+          </app-language-panel>
+          <br>
+          <!-- Teaching languages -->
+          <app-language-panel [title]="'Teaching languages'"
+                              [expanded]="step === 1"
+                              (openEmitter)="setStep(1)">
+          </app-language-panel>
+          <br>
+          <!-- Hobbies -->
+          <app-chips-panel [title]="'Hobbies & Interest'"
+                           [placeholder]="'hiking'"
+                           [expanded]="step === 2"
+                           (openEmitter)="setStep(2)"
+                           [editable]="true"
+                           [options]="hobbies">
+          </app-chips-panel>
+          <br>
+          <!-- Contacts -->
+          <app-chips-panel [title]="'Contacts'"
+                           [placeholder]="'facebook'"
+                           [expanded]="step === 3"
+                           (openEmitter)="setStep(3)"
+                           [editable]="true"
+                           [options]="contacts">
+          </app-chips-panel>
+          <br>
+        </mat-accordion>
+      </p>
+
+      <div class="footer2">
+        <button mat-raised-button matStepperPrevious color="primary">
+          Back
+        </button>
+        <button mat-raised-button matStepperNext color="primary"
+                *ngIf="step === 3">
+          Done
+        </button>
+        <button mat-raised-button color="primary"
+                *ngIf="step < 3" (click)="step = step + 1">
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+
+    <div class="spinner-container">
+      <mat-progress-spinner mode="indeterminate"
+                            *ngIf="!authSuccess && !authError">
+      </mat-progress-spinner>
+      <mat-icon class="check" color="primary"
+                *ngIf="authSuccess" [inline]="true">
+        check_circle_outline
+      </mat-icon>
+      <mat-icon class="check" color="primary"
+                *ngIf="authError" [inline]="true">
+        error_outline
+      </mat-icon>
+    </div>
+
+    <div class="footer2">
+      <button mat-raised-button matStepperPrevious color="primary"
+              *ngIf="authError">
+        Go Back
+      </button>
+      <button mat-raised-button color="primary"
+              *ngIf="authSuccess" (click)="goHome()">
+        Go Home
+      </button>
+      <h4 *ngIf="!authSuccess && !authError">Please wait...</h4>
+    </div>
+  </mat-step>
+
+</mat-horizontal-stepper>

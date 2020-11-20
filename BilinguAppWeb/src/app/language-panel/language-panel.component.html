@@ -1,0 +1,40 @@
+
+<mat-expansion-panel [expanded]="expanded" (opened)="openEmitter.emit()">
+  <mat-expansion-panel-header>
+    <mat-panel-title>{{title}}</mat-panel-title>
+    <mat-panel-description>{{description}}</mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <div>
+    <button mat-icon-button color="primary" matTooltip="Remove"
+            (click)="AddRemoveFields(-1)">
+      <mat-icon>remove_circle</mat-icon>
+    </button>
+    <button mat-icon-button color="accent" matTooltip="Add"
+            (click)="AddRemoveFields(+1)">
+      <mat-icon>add_circle</mat-icon>
+    </button>
+  </div>
+  <br>
+  <form [formGroup]="formGroup">
+    <div class="container" *ngFor="let language of arrayOne(fields); let i = index">
+      <mat-form-field appearance="fill" class="language-field">
+        <mat-label>Language</mat-label>
+        <mat-select formControlName="language{{i}}" required>
+          <mat-option *ngFor="let language of languages" [value]="language">
+            {{language}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="language-field">
+        <mat-label>Level</mat-label>
+        <mat-select formControlName="level{{i}}" required>
+          <mat-option *ngFor="let level of levels" [value]="level">
+            {{level}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+
+</mat-expansion-panel>
