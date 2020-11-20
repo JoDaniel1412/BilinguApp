@@ -28,6 +28,10 @@ export class NavBarComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  goAdmin() {
+    this.router.navigate(['/admin']);
+  }
+
   editProfile() {
     this.dialog.open(ProfileComponent, {
       width: '400px',
