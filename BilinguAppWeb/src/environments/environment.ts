@@ -4,7 +4,16 @@
 
 export const environment = {
   production: false,
-  api: 'bilinguapp.azurewebsites.net/'
+  api: 'bilinguapp.azurewebsites.net/',
+  firebaseConfig: {
+    apiKey: 'AIzaSyAN4VT-gnCgDHWwuJwPHH8bZ5kpryR-4Oc',
+    authDomain: 'bilinguapp.firebaseapp.com',
+    databaseURL: 'https://bilinguapp.firebaseio.com',
+    projectId: 'bilinguapp',
+    storageBucket: 'bilinguapp.appspot.com',
+    messagingSenderId: '230232417298',
+    appId: '1:230232417298:web:fb36eac5e722492c4424cb'
+  }
 };
 
 /*

@@ -41,6 +41,8 @@ import { ChipsPanelComponent } from './chips-panel/chips-panel.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { LogInComponent } from './log-in/log-in.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import {environment} from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
 
 @NgModule({
   declarations: [
@@ -58,36 +60,37 @@ import {MatTabsModule} from '@angular/material/tabs';
     ChipsPanelComponent,
     LogInComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatIconModule,
-        MatListModule,
-        MatCheckboxModule,
-        MatSelectModule,
-        MatSliderModule,
-        ReactiveFormsModule,
-        MatCardModule,
-        MatTooltipModule,
-        MatChipsModule,
-        FormsModule,
-        MatDialogModule,
-        MatInputModule,
-        MatGridListModule,
-        MatSidenavModule,
-        MatDatepickerModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatSortModule,
-        HttpClientModule,
-        MatStepperModule,
-        MatNativeDateModule,
-        MatExpansionModule,
-        MatProgressSpinnerModule,
-        MatTabsModule,
+  imports: [
+      BrowserModule,
+      AppRoutingModule,
+      BrowserAnimationsModule,
+      MatToolbarModule,
+      MatButtonModule,
+      MatIconModule,
+      MatListModule,
+      MatCheckboxModule,
+      MatSelectModule,
+      MatSliderModule,
+      ReactiveFormsModule,
+      MatCardModule,
+      MatTooltipModule,
+      MatChipsModule,
+      FormsModule,
+      MatDialogModule,
+      MatInputModule,
+      MatGridListModule,
+      MatSidenavModule,
+      MatDatepickerModule,
+      MatTableModule,
+      MatPaginatorModule,
+      MatSortModule,
+      HttpClientModule,
+      MatStepperModule,
+      MatNativeDateModule,
+      MatExpansionModule,
+      MatProgressSpinnerModule,
+      MatTabsModule,
+      AngularFireModule.initializeApp(environment.firebaseConfig)
     ],
   providers: [],
   bootstrap: [AppComponent]
