@@ -14,7 +14,7 @@ export class AuthService {
 
   public signedIn: Observable<any>;
 
-  constructor(public fs: AngularFirestore, public auth: AngularFireAuth) {
+  constructor(public auth: AngularFireAuth) {
     this.signedIn = new Observable((subscriber) => {
       this.auth.onAuthStateChanged(subscriber);
     });
