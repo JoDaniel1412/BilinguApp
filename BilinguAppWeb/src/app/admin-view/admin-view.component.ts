@@ -37,7 +37,17 @@ export class AdminViewComponent implements OnInit {
 
   fetchUsersOrigin() {
     this.adminViewService.getUsersOrigin().subscribe(data => {
-      this.usersOrigin.data = this.extractData(data);
+      const extractData = this.extractData(data);
+      const usersOrigin = [];
+      extractData.forEach(value => {
+        const newUser = {
+          uid: value.uid,
+          name: value.name,
+          country: value.country.name
+        };
+        usersOrigin.push(newUser);
+      });
+      this.usersOrigin.data = usersOrigin;
     });
   }
 
