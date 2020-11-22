@@ -23,7 +23,7 @@ export class UserCardComponent implements OnInit {
   }
 
   userDetails() {
-    this.homeViewService.getUserDetailed(this.user.uid)
+    this.homeViewService.getUser(this.user.uid)
       .subscribe(data => {
         this.userDetailed = data[0][0];
         console.log('User details: ', this.userDetailed);

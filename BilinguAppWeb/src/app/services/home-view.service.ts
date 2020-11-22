@@ -13,11 +13,11 @@ export class HomeViewService {
 
   constructor(private http: HttpClient) { }
 
-  getUserDetailed(uid: string): Observable<IUserDetailed>{
+  getUser(uid: string): Observable<IUserDetailed[][]>{
     const path = environment.api + this.url + 'user/detailed/' + uid;
     const params = new HttpParams();
     console.log(path, params);
-    return this.http.get<IUserDetailed>(path, {params});
+    return this.http.get<IUserDetailed[][]>(path, {params});
   }
 
   getUsers(learning: string[] = [],
@@ -33,5 +33,12 @@ export class HomeViewService {
       .append('age', age.toString());
     console.log(path, params);
     return this.http.get<IUserSimplify[][]>(path, {});
+  }
+
+  putUser(uid: string, hobbies: string[], contact: string[]) {
+    const path = environment.api + this.url + 'user/' + uid;
+    const params = new HttpParams();
+    console.log(path, params);
+    return this.http.put(path, {hobbies, contact}, {params});
   }
 }

@@ -26,7 +26,8 @@
 </mat-dialog-content>
 
 <mat-dialog-actions>
-  <button mat-icon-button color="primary" matTooltip="Save">
+  <button mat-icon-button color="primary" matTooltip="Save"
+          (click)="saveData()">
     <mat-icon>save</mat-icon>
   </button>
   <button mat-icon-button color="warn" matTooltip="Close"

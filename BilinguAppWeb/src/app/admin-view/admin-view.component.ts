@@ -22,10 +22,10 @@ export class AdminViewComponent implements OnInit {
   usersTeachingCols = ['Language', '#Users'];
 
   constructor(private adminViewService: AdminViewService) {
-    this.usersOrigin = new MatTableDataSource<IUsersOrigin>(UsersOrigin);
-    this.usersPerCountry = new MatTableDataSource<IUsersPerCountry>(UsersPerCountry);
-    this.usersLearning = new MatTableDataSource<IUsersLanguage>(UsersLearning);
-    this.usersTeaching = new MatTableDataSource<IUsersLanguage>(UsersTeaching);
+    this.usersOrigin = new MatTableDataSource<IUsersOrigin>();
+    this.usersPerCountry = new MatTableDataSource<IUsersPerCountry>();
+    this.usersLearning = new MatTableDataSource<IUsersLanguage>();
+    this.usersTeaching = new MatTableDataSource<IUsersLanguage>();
   }
 
   ngOnInit(): void {

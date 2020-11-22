@@ -5,6 +5,7 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog
 import {IUserDetailed} from '../models/home-view-models';
 import {User} from '../../data/home-view-sample';
 import {ProfileComponent} from '../modals/profile/profile.component';
+import {HomeViewService} from '../services/home-view.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -17,10 +18,11 @@ export class NavBarComponent implements OnInit {
 
   constructor(private router: Router,
               private authService: AuthService,
+              private homeViewService: HomeViewService,
               public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.userDetailed = User;
+    // this.userDetailed = User;
   }
 
   goHome() {
@@ -32,9 +34,24 @@ export class NavBarComponent implements OnInit {
   }
 
   editProfile() {
-    this.dialog.open(ProfileComponent, {
-      width: '400px',
-      data: this.userDetailed
+    // Gets user id
+    this.authService.signedIn.subscribe(user => {
+      if (user) {
+        console.log('Edit profile of:', user);
+        // Gets user data
+        this.homeViewService
+          .getUser(user.uid)
+          .subscribe(result => {
+            console.log('User profile data:', result);
+            if (result.length < 1) { return; }
+            this.userDetailed = result[0][0];
+            // Opens dialog
+            this.dialog.open(ProfileComponent, {
+              width: '400px',
+              data: this.userDetailed
+            });
+        });
+      }
     });
   }
 
