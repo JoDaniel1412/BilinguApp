@@ -15,16 +15,16 @@ export const Teaching = [
 export const Countries = ['Japan', 'Costa Rica', 'United States', 'Spain', 'Italy', 'Chile'];
 
 export const User = {
-  uid: '213143243423',
-  email: 'jess@email.com',
-  name: 'Jess',
-  age: 'Tue Mar 17 2000 00:00:00 GMT-0600 (Central Standard Time)',
-  sex: 'female',
-  country: {name: 'United States', iso: ''},
-  hobbies: ['video games', 'movies', 'eat'],
-  contact: ['WhatsApp', 'Skype', 'Meet'],
-  learning: Teaching,
-  teaching: Learning,
+  uid: '',
+  email: '',
+  name: '',
+  age: '',
+  sex: '',
+  country: {name: '', iso: ''},
+  hobbies: ['', '', ''],
+  contact: ['', '', ''],
+  learning: [],
+  teaching: [],
 };
 
 export const Users = [

@@ -1,9 +1,10 @@
 
 export interface IUserSimplify {
+  uid: string;
   name: string;
   country: ICountry;
-  learning: string[];
-  teaching: string[];
+  learning: {language: string, level: string}[];
+  teaching: {language: string, level: string}[];
 }
 
 export interface IUserDetailed {

@@ -10,7 +10,7 @@
     <h3>Learning</h3>
     <mat-chip-list class="flex-container">
       <li class="flex-item" *ngFor="let learning of user.learning">
-        <mat-chip>{{learning}}</mat-chip>
+        <mat-chip>{{learning.language}}</mat-chip>
       </li>
     </mat-chip-list>
     <br>
@@ -19,7 +19,7 @@
     <h3>Teaching</h3>
     <mat-chip-list class="flex-container">
       <li class="flex-item" *ngFor="let teaching of user.teaching">
-        <mat-chip>{{teaching}}</mat-chip>
+        <mat-chip>{{teaching.language}}</mat-chip>
       </li>
     </mat-chip-list>
     <br>

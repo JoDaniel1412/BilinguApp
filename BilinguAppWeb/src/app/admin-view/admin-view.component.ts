@@ -37,25 +37,33 @@ export class AdminViewComponent implements OnInit {
 
   fetchUsersOrigin() {
     this.adminViewService.getUsersOrigin().subscribe(data => {
-      this.usersOrigin.data = data;
+      this.usersOrigin.data = this.extractData(data);
     });
   }
 
   fetchUsersPerCountry() {
     this.adminViewService.getUsersPerCountry().subscribe(data => {
-      this.usersPerCountry.data = data;
+      this.usersPerCountry.data = this.extractData(data);
     });
   }
 
   fetchUsersLearning() {
     this.adminViewService.getUsersLearning().subscribe(data => {
-      this.usersLearning.data = data;
+      this.usersLearning.data = this.extractData(data);
     });
   }
 
   fetchUsersTeaching() {
     this.adminViewService.getUsersTeaching().subscribe(data => {
-      this.usersTeaching.data = data;
+      this.usersTeaching.data = this.extractData(data);
     });
+  }
+
+  private extractData(data: any[]) {
+    const result = [];
+    data.forEach(value => {
+      result.push(value[0]);
+    });
+    return result;
   }
 }

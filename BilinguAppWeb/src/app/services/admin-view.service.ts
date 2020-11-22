@@ -13,31 +13,31 @@ export class AdminViewService {
 
   constructor(private http: HttpClient) { }
 
-  getUsersOrigin(): Observable<IUsersOrigin[]>{
+  getUsersOrigin(): Observable<IUsersOrigin[][]>{
     const path = environment.api + this.url + 'users_country';
     const params = new HttpParams();
     console.log(path, params);
-    return this.http.get<IUsersOrigin[]>(path, {params});
+    return this.http.get<IUsersOrigin[][]>(path, {params});
   }
 
-  getUsersPerCountry(): Observable<IUsersPerCountry[]> {
+  getUsersPerCountry(): Observable<IUsersPerCountry[][]> {
     const path = environment.api + this.url + 'users_per_country';
     const params = new HttpParams();
     console.log(path, params);
-    return this.http.get<IUsersPerCountry[]>(path, {params});
+    return this.http.get<IUsersPerCountry[][]>(path, {params});
   }
 
-  getUsersLearning(): Observable<IUsersLanguage[]> {
+  getUsersLearning(): Observable<IUsersLanguage[][]> {
     const path = environment.api + this.url + 'users_per_learning';
     const params = new HttpParams();
     console.log(path, params);
-    return this.http.get<IUsersLanguage[]>(path, {params});
+    return this.http.get<IUsersLanguage[][]>(path, {params});
   }
 
-  getUsersTeaching(): Observable<IUsersLanguage[]> {
+  getUsersTeaching(): Observable<IUsersLanguage[][]> {
     const path = environment.api + this.url + 'users_per_teaching';
     const params = new HttpParams();
     console.log(path, params);
-    return this.http.get<IUsersLanguage[]>(path, {params});
+    return this.http.get<IUsersLanguage[][]>(path, {params});
   }
 }
