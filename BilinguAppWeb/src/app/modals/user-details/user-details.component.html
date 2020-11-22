@@ -13,7 +13,7 @@
       Learning
     </div>
     <mat-list-item *ngFor="let language of user.learning" >
-      <h4> - {{language.name | titlecase}} ({{language.level}})</h4>
+      <h4> - {{language.language | titlecase}} ({{language.level}})</h4>
     </mat-list-item>
 
     <!-- Teaching languages -->
@@ -22,7 +22,7 @@
       Teaching
     </div>
     <mat-list-item *ngFor="let language of user.teaching">
-      <h4> - {{language.name | titlecase}} ({{language.level}})</h4>
+      <h4> - {{language.language | titlecase}} ({{language.level}})</h4>
     </mat-list-item>
 
     <!-- Hobbies -->

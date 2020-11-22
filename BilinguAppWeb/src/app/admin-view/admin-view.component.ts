@@ -18,8 +18,8 @@ export class AdminViewComponent implements OnInit {
 
   usersOriginCols = ['ID', 'Name', 'Country'];
   usersPerCountryCols = ['Country', '#Users'];
-  usersLearningCols = ['Country', '#Users'];
-  usersTeachingCols = ['Country', '#Users'];
+  usersLearningCols = ['Language', '#Users'];
+  usersTeachingCols = ['Language', '#Users'];
 
   constructor(private adminViewService: AdminViewService) {
     this.usersOrigin = new MatTableDataSource<IUsersOrigin>(UsersOrigin);

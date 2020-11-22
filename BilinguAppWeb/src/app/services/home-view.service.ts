@@ -14,8 +14,8 @@ export class HomeViewService {
   constructor(private http: HttpClient) { }
 
   getUserDetailed(uid: string): Observable<IUserDetailed>{
-    const path = environment.api + this.url + 'user/detailed ';
-    const params = new HttpParams().append('uid', uid);
+    const path = environment.api + this.url + 'user/detailed/' + uid;
+    const params = new HttpParams();
     console.log(path, params);
     return this.http.get<IUserDetailed>(path, {params});
   }

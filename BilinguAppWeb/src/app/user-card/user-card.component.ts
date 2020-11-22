@@ -19,21 +19,18 @@ export class UserCardComponent implements OnInit {
               private homeViewService: HomeViewService) { }
 
   ngOnInit(): void {
-    this.userDetailed = User;
+    // this.userDetailed = User;
   }
 
   userDetails() {
-    this.fetchUserDetailed();
-    this.dialog.open(UserDetailsComponent, {
-      width: '400px',
-      data: this.userDetailed
+    this.homeViewService.getUserDetailed(this.user.uid)
+      .subscribe(data => {
+        this.userDetailed = data[0][0];
+        console.log('User details: ', this.userDetailed);
+        this.dialog.open(UserDetailsComponent, {
+          width: '400px',
+          data: this.userDetailed
+        });
     });
   }
-
-  fetchUserDetailed() {
-    this.homeViewService.getUserDetailed(this.user.uid).subscribe(data => {
-      this.userDetailed = data;
-    });
-  }
-
 }

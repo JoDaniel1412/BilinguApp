@@ -3,8 +3,8 @@ export interface IUserSimplify {
   uid: string;
   name: string;
   country: ICountry;
-  learning: {language: string, level: string}[];
-  teaching: {language: string, level: string}[];
+  learning: ILanguage[];
+  teaching: ILanguage[];
 }
 
 export interface IUserDetailed {
@@ -25,6 +25,6 @@ export interface ICountry {
 }
 
 export interface ILanguage {
-  name: string;
+  language: string;
   level: string;
 }
