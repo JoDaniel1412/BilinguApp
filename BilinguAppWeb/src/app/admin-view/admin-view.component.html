@@ -1,0 +1,47 @@
+
+<ul class="flex-container">
+
+  <!-- Users origin country -->
+  <li class="flex-table-md">
+    <app-table #UsersOrigin
+               [title]="'Users origin'"
+               [dataSource]="usersOrigin"
+               [displayedColumns]="usersOriginCols"
+               [hasDate]="false"
+               (filterEmitter)="fetchUsersOrigin()">
+    </app-table>
+  </li>
+
+  <!-- Users per country -->
+  <li class="flex-table-md">
+    <app-table #UsersPerCountry
+               [title]="'Users/Country'"
+               [dataSource]="usersPerCountry"
+               [displayedColumns]="usersPerCountryCols"
+               [hasDate]="false"
+               (filterEmitter)="fetchUsersPerCountry()">
+    </app-table>
+  </li>
+
+  <!-- Users learning -->
+  <li class="flex-table-md">
+    <app-table #UsersLearning
+               [title]="'Users learning'"
+               [dataSource]="usersLearning"
+               [displayedColumns]="usersLearningCols"
+               [hasDate]="false"
+               (filterEmitter)="fetchUsersLearning()">
+    </app-table>
+  </li>
+
+  <!-- Users teaching -->
+  <li class="flex-table-md">
+    <app-table #UsersTeaching
+               [title]="'Users teaching'"
+               [dataSource]="usersTeaching"
+               [displayedColumns]="usersTeachingCols"
+               [hasDate]="false"
+               (filterEmitter)="fetchUsersTeaching()">
+    </app-table>
+  </li>
+</ul>

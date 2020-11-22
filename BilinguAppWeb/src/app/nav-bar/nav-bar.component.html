@@ -1,0 +1,26 @@
+
+<mat-toolbar color="primary" class="mat-elevation-z4">
+  <button mat-flat-button color="primary"
+          matTooltip="Home"
+          class="nav-btn" (click)="goHome()">
+    <mat-icon class="icon">language</mat-icon>
+    BillinguApp
+  </button>
+
+  <button mat-flat-button color="primary"
+          matTooltip="Admin"
+          class="nav-btn" (click)="goAdmin()">
+    Admin
+  </button>
+
+  <span class="spacer"></span>
+
+  <button mat-icon-button matTooltip="User"
+          [matMenuTriggerFor]="user" *ngIf="isUser()">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #user="matMenu">
+    <button mat-menu-item (click)="editProfile()">Edit profile</button>
+    <button mat-menu-item (click)="signOut()">Sign out</button>
+  </mat-menu>
+</mat-toolbar>

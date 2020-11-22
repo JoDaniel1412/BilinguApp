@@ -1,0 +1,58 @@
+
+<!-- Header -->
+<h1 mat-dialog-title>{{user.name}} - {{calculateAge(user.age)}}</h1>
+<h4>{{user.sex | titlecase}} - {{user.country.name}}</h4>
+
+<!-- Content -->
+<mat-dialog-content>
+  <mat-list>
+
+    <!-- Learning languages -->
+    <div mat-subheader>
+      <mat-icon mat-list-icon>language</mat-icon>
+      Learning
+    </div>
+    <mat-list-item *ngFor="let language of user.learning" >
+      <h4> - {{language.name | titlecase}} ({{language.level}})</h4>
+    </mat-list-item>
+
+    <!-- Teaching languages -->
+    <div mat-subheader>
+      <mat-icon mat-list-icon>language</mat-icon>
+      Teaching
+    </div>
+    <mat-list-item *ngFor="let language of user.teaching">
+      <h4> - {{language.name | titlecase}} ({{language.level}})</h4>
+    </mat-list-item>
+
+    <!-- Hobbies -->
+    <div mat-subheader>
+      <mat-icon mat-list-icon>sports_basketball</mat-icon>
+      Hobbies
+    </div>
+    <mat-chip-list class="flex-container">
+      <li class="flex-item" *ngFor="let hobby of user.hobbies">
+        <mat-chip>{{hobby}}</mat-chip>
+      </li>
+    </mat-chip-list>
+
+    <!-- Contact -->
+    <div mat-subheader>
+      <mat-icon mat-list-icon>contact_page</mat-icon>
+      Contact
+    </div>
+    <mat-chip-list class="flex-container">
+      <li class="flex-item" *ngFor="let contact of user.contact">
+        <mat-chip>{{contact}}</mat-chip>
+      </li>
+    </mat-chip-list>
+
+  </mat-list>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="onNoClick()">
+    <mat-icon>close</mat-icon>
+    Close
+  </button>
+</mat-dialog-actions>

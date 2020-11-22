@@ -1,0 +1,23 @@
+
+.flex-container
+  display: flex
+  flex-flow: row wrap
+  justify-content: space-evenly
+  padding: 0
+  margin: 0
+  list-style: none
+
+%flex-item
+  padding: 20px
+  margin-top: 20px
+
+.flex-table-md
+  @extend %flex-item
+  flex-grow: 2
+  width: 500px
+  height: 600px
+
+.flex-table-lg
+  @extend %flex-item
+  width: 100%
+  height: 900px
