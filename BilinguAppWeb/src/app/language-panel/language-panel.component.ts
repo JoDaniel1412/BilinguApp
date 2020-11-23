@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Languages} from '../../data/auth-sample';
+import {LanguageLevels, Languages} from '../../data/auth-sample';
 import {ILanguage} from '../models/home-view-models';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
@@ -26,7 +26,7 @@ export class LanguagePanelComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {
     this.languages = Languages;
-    this.levels = ['starter', 'amateur', 'advanced'];
+    this.levels = LanguageLevels;
   }
 
   ngOnInit(): void {
@@ -86,12 +86,12 @@ export class LanguagePanelComponent implements OnInit {
 
   formatGroup(value: any) {
     const result: ILanguage[] = [];
-    result.push({name: value.language0, level: value.level0});
+    result.push({language: value.language0, level: value.level0});
     if (this.fields > 1) {
-      result.push({name: value.language1, level: value.level1});
+      result.push({language: value.language1, level: value.level1});
     }
     if (this.fields > 2) {
-      result.push({name: value.language2, level: value.level2});
+      result.push({language: value.language2, level: value.level2});
     }
     return result;
   }

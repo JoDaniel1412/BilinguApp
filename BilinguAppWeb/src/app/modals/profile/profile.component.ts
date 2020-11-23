@@ -1,6 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {IUserDetailed} from '../../models/home-view-models';
+import {HomeViewService} from '../../services/home-view.service';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -14,11 +16,12 @@ export class ProfileComponent implements OnInit {
   step = 0;
 
   constructor(public dialogRef: MatDialogRef<ProfileComponent>,
-              @Inject(MAT_DIALOG_DATA) public user: IUserDetailed) { }
+              @Inject(MAT_DIALOG_DATA) public user: IUserDetailed,
+              private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.hobbies = ['Movies', 'Video Games', 'Pets'];
-    this.contacts = ['Skype', 'WhatsApp', 'BilinguApp', 'Person'];
+    this.hobbies = this.user.hobbies;
+    this.contacts = this.user.contact;
   }
 
   setStep(index: number) {
@@ -33,5 +36,16 @@ export class ProfileComponent implements OnInit {
     const today = new Date();
     const date = new Date(birthday);
     return today.getFullYear() - date.getFullYear();
+  }
+
+  saveData() {
+    this.authService.putUser(this.user.uid, this.hobbies, this.contacts)
+      .subscribe(result => {
+        console.log('Edited profile: ', result);
+      });
+  }
+
+  getUserFlag(iso) {
+    return 'flag-icon-' + iso.toLowerCase();
   }
 }

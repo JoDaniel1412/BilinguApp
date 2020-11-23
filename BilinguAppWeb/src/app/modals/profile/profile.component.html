@@ -1,6 +1,8 @@
 
 <!-- Header -->
-<h1 mat-dialog-title>{{user.name}} - {{calculateAge(user.age)}}</h1>
+<h1 mat-dialog-title>{{user.name}} - {{calculateAge(user.age)}}
+  <span class="flag-icon mat-elevation-z2 {{getUserFlag(user.country.iso)}}"></span>
+</h1>
 <h4>{{user.sex | titlecase}} - {{user.country.name}}</h4>
 
 <!-- Content -->
@@ -26,7 +28,8 @@
 </mat-dialog-content>
 
 <mat-dialog-actions>
-  <button mat-icon-button color="primary" matTooltip="Save">
+  <button mat-icon-button color="primary" matTooltip="Save"
+          (click)="saveData()">
     <mat-icon>save</mat-icon>
   </button>
   <button mat-icon-button color="warn" matTooltip="Close"

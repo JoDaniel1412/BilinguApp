@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Countries} from '../../data/home-view-sample';
 import {Router} from '@angular/router';
-import {ILanguage, IUserDetailed} from '../models/home-view-models';
+import {ICountry, ILanguage, IUserDetailed} from '../models/home-view-models';
 import {AuthService} from '../services/auth.service';
+import {Contacts, CountryISO, Hobbies, Sex} from '../../data/auth-sample';
 
 @Component({
   selector: 'app-sign-up',
@@ -19,7 +20,7 @@ export class SignUpComponent implements OnInit {
   hobbiesFormGroup: string[];
   contactsFormGroup: string[];
 
-  countries: string[];
+  countries: ICountry[];
   hide = true;
   sex: string [];
   hobbies: string[];
@@ -32,12 +33,12 @@ export class SignUpComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private router: Router,
               private authService: AuthService) {
-    this.countries = Countries;
-    this.sex = ['Male', 'Female', 'Unspecified'];
+    this.countries = CountryISO;
+    this.sex = Sex;
     this.learningLanguage = [];
     this.teachingLanguage = [];
-    this.hobbies = ['Movies', 'Video Games', 'Pets'];
-    this.contacts = ['Skype', 'WhatsApp', 'BilinguApp', 'Person'];
+    this.hobbies = Hobbies;
+    this.contacts = Contacts;
   }
 
   ngOnInit() {
@@ -74,16 +75,7 @@ export class SignUpComponent implements OnInit {
       hobbies: this.hobbiesFormGroup
     };
 
-    try {
-      this.authError = false;
-      const result = await this.authService.createAccount(userFF.email, userFF.password, user);
-      console.log('create account', result);
-      if (result) { await this.signIn(userFF.email, userFF.password); }
-      else { throw new Error('Sign-up failed'); }
-    } catch (error) {
-      console.log(error);
-      this.authError = true;
-    }
+    await this.authService.createAccount(userFF.email, userFF.password, user);
   }
 
   async signIn(email: string, password: string) {

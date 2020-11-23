@@ -1,8 +1,11 @@
 
 export interface IUsersOrigin {
-  id: string;
+  uid: string;
   name: string;
-  country: string;
+  country: {
+    name: string,
+    iso: string
+  };
 }
 
 export interface IUsersPerCountry {

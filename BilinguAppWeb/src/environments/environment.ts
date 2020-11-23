@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: 'http://f33f8e8b6ef7.ngrok.io/',
+  api: 'http://7ddba7b1c8e8.ngrok.io/',
   firebaseConfig: {
     apiKey: 'AIzaSyAN4VT-gnCgDHWwuJwPHH8bZ5kpryR-4Oc',
     authDomain: 'bilinguapp.firebaseapp.com',

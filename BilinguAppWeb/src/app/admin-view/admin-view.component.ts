@@ -18,14 +18,14 @@ export class AdminViewComponent implements OnInit {
 
   usersOriginCols = ['ID', 'Name', 'Country'];
   usersPerCountryCols = ['Country', '#Users'];
-  usersLearningCols = ['Country', '#Users'];
-  usersTeachingCols = ['Country', '#Users'];
+  usersLearningCols = ['Language', '#Users'];
+  usersTeachingCols = ['Language', '#Users'];
 
   constructor(private adminViewService: AdminViewService) {
-    this.usersOrigin = new MatTableDataSource<IUsersOrigin>(UsersOrigin);
-    this.usersPerCountry = new MatTableDataSource<IUsersPerCountry>(UsersPerCountry);
-    this.usersLearning = new MatTableDataSource<IUsersLanguage>(UsersLearning);
-    this.usersTeaching = new MatTableDataSource<IUsersLanguage>(UsersTeaching);
+    this.usersOrigin = new MatTableDataSource<IUsersOrigin>();
+    this.usersPerCountry = new MatTableDataSource<IUsersPerCountry>();
+    this.usersLearning = new MatTableDataSource<IUsersLanguage>();
+    this.usersTeaching = new MatTableDataSource<IUsersLanguage>();
   }
 
   ngOnInit(): void {
@@ -37,25 +37,43 @@ export class AdminViewComponent implements OnInit {
 
   fetchUsersOrigin() {
     this.adminViewService.getUsersOrigin().subscribe(data => {
-      this.usersOrigin.data = data;
+      const extractData = this.extractData(data);
+      const usersOrigin = [];
+      extractData.forEach(value => {
+        const newUser = {
+          uid: value.uid,
+          name: value.name,
+          country: value.country.name
+        };
+        usersOrigin.push(newUser);
+      });
+      this.usersOrigin.data = usersOrigin;
     });
   }
 
   fetchUsersPerCountry() {
     this.adminViewService.getUsersPerCountry().subscribe(data => {
-      this.usersPerCountry.data = data;
+      this.usersPerCountry.data = this.extractData(data);
     });
   }
 
   fetchUsersLearning() {
     this.adminViewService.getUsersLearning().subscribe(data => {
-      this.usersLearning.data = data;
+      this.usersLearning.data = this.extractData(data);
     });
   }
 
   fetchUsersTeaching() {
     this.adminViewService.getUsersTeaching().subscribe(data => {
-      this.usersTeaching.data = data;
+      this.usersTeaching.data = this.extractData(data);
     });
+  }
+
+  private extractData(data: any[]) {
+    const result = [];
+    data.forEach(value => {
+      result.push(value[0]);
+    });
+    return result;
   }
 }
