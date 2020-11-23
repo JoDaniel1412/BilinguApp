@@ -74,16 +74,7 @@ export class SignUpComponent implements OnInit {
       hobbies: this.hobbiesFormGroup
     };
 
-    try {
-      this.authError = false;
-      const result = await this.authService.createAccount(userFF.email, userFF.password, user);
-      console.log('create account', result);
-      if (result) { await this.signIn(userFF.email, userFF.password); }
-      else { throw new Error('Sign-up failed'); }
-    } catch (error) {
-      console.log(error);
-      this.authError = true;
-    }
+    await this.authService.createAccount(userFF.email, userFF.password, user);
   }
 
   async signIn(email: string, password: string) {

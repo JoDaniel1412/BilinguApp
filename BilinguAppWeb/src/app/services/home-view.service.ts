@@ -22,23 +22,16 @@ export class HomeViewService {
 
   getUsers(learning: string[] = [],
            teaching: string[] = [],
-           country: string = '',
+           country: string[] = [],
            age: number[] = [0, 99])
     : Observable<IUserSimplify[][]> {
-    const path = environment.api + this.url + 'users ';
+    const path = environment.api + this.url + 'users';
     const params = new HttpParams()
       .append('learning', learning.toString())
       .append('teaching', teaching.toString())
-      .append('country', country)
+      .append('country', country.toString())
       .append('age', age.toString());
     console.log(path, params);
-    return this.http.get<IUserSimplify[][]>(path, {});
-  }
-
-  putUser(uid: string, hobbies: string[], contact: string[]) {
-    const path = environment.api + this.url + 'user/' + uid;
-    const params = new HttpParams();
-    console.log(path, params);
-    return this.http.put(path, {hobbies, contact}, {params});
+    return this.http.get<IUserSimplify[][]>(path, {params});
   }
 }

@@ -9,7 +9,7 @@
     Learning
   </div>
   <mat-list-item *ngFor="let language of learning">
-    <mat-checkbox>{{language.name | titlecase}}</mat-checkbox>
+    <mat-checkbox>{{language.language | titlecase}}</mat-checkbox>
   </mat-list-item>
 
   <!-- Teaching languages -->
@@ -19,7 +19,7 @@
   </div>
   <mat-divider></mat-divider>
   <mat-list-item *ngFor="let language of teaching">
-    <mat-checkbox>{{language.name | titlecase}}</mat-checkbox>
+    <mat-checkbox>{{language.language | titlecase}}</mat-checkbox>
   </mat-list-item>
 
   <!-- Country select -->

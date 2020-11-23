@@ -2,6 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {IUserDetailed} from '../../models/home-view-models';
 import {HomeViewService} from '../../services/home-view.service';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,7 +17,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<ProfileComponent>,
               @Inject(MAT_DIALOG_DATA) public user: IUserDetailed,
-              private homeViewService: HomeViewService) { }
+              private authService: AuthService) { }
 
   ngOnInit(): void {
     this.hobbies = this.user.hobbies;
@@ -38,7 +39,7 @@ export class ProfileComponent implements OnInit {
   }
 
   saveData() {
-    this.homeViewService.putUser(this.user.uid, this.hobbies, this.contacts)
+    this.authService.putUser(this.user.uid, this.hobbies, this.contacts)
       .subscribe(result => {
         console.log('Edited profile: ', result);
       });

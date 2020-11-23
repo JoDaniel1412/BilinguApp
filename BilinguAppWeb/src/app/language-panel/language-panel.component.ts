@@ -86,12 +86,12 @@ export class LanguagePanelComponent implements OnInit {
 
   formatGroup(value: any) {
     const result: ILanguage[] = [];
-    result.push({name: value.language0, level: value.level0});
+    result.push({language: value.language0, level: value.level0});
     if (this.fields > 1) {
-      result.push({name: value.language1, level: value.level1});
+      result.push({language: value.language1, level: value.level1});
     }
     if (this.fields > 2) {
-      result.push({name: value.language2, level: value.level2});
+      result.push({language: value.language2, level: value.level2});
     }
     return result;
   }
