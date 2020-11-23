@@ -27,10 +27,10 @@ export class HomeViewService {
     : Observable<IUserSimplify[][]> {
     const path = environment.api + this.url + 'users';
     const params = new HttpParams()
-      .append('learning', learning.toString())
-      .append('teaching', teaching.toString())
-      .append('country', country.toString())
-      .append('age', age.toString());
+      .append('learning', '[' + learning.toString() + ']')
+      .append('teaching', '[' + teaching.toString() + ']')
+      .append('country', '[' + country.toString() + ']')
+      .append('age', '[' + age.toString() + ']');
     console.log(path, params);
     return this.http.get<IUserSimplify[][]>(path, {params});
   }

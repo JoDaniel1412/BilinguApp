@@ -1,4 +1,3 @@
-import {ICountry, ILanguage} from '../app/models/home-view-models';
 
 export const Learning = [
   {name: 'spanish', level: 'amateur'},
@@ -12,7 +11,12 @@ export const Teaching = [
   {name: 'portuguese', level: 'average'},
 ];
 
-export const Countries = ['Japan', 'Costa Rica', 'United States', 'Spain', 'Italy', 'Chile'];
+export const Countries = ['Argentina', 'Brasil', 'Canada', 'Chile', 'Colombia', 'Costa Rica', 'United States', 'Guatemala',
+  'Honduras', 'Jamaica', 'Mexico', 'Panama', 'Deutschland', 'Greek', 'Italy', 'Spain', 'Portugal', 'France', 'China',
+  'Russia', 'Japan'];
+
+export const ISO = ['AR', 'BR', 'CA', 'CL', 'CO', 'CR', 'US', 'GT', 'HN', 'JM', 'MX', 'PA', 'DE', 'GR', 'IT',
+  'ES', 'PT', 'FR', 'CN', 'RU', 'JP', 'IN'];
 
 export const User = {
   uid: '',

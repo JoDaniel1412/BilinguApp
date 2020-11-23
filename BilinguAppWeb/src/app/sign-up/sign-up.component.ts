@@ -4,6 +4,7 @@ import {Countries} from '../../data/home-view-sample';
 import {Router} from '@angular/router';
 import {ILanguage, IUserDetailed} from '../models/home-view-models';
 import {AuthService} from '../services/auth.service';
+import {Contacts, Hobbies, Sex} from '../../data/auth-sample';
 
 @Component({
   selector: 'app-sign-up',
@@ -33,11 +34,11 @@ export class SignUpComponent implements OnInit {
               private router: Router,
               private authService: AuthService) {
     this.countries = Countries;
-    this.sex = ['Male', 'Female', 'Unspecified'];
+    this.sex = Sex;
     this.learningLanguage = [];
     this.teachingLanguage = [];
-    this.hobbies = ['Movies', 'Video Games', 'Pets'];
-    this.contacts = ['Skype', 'WhatsApp', 'BilinguApp', 'Person'];
+    this.hobbies = Hobbies;
+    this.contacts = Contacts;
   }
 
   ngOnInit() {

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Languages} from '../../data/auth-sample';
+import {LanguageLevels, Languages} from '../../data/auth-sample';
 import {ILanguage} from '../models/home-view-models';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
@@ -26,7 +26,7 @@ export class LanguagePanelComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {
     this.languages = Languages;
-    this.levels = ['starter', 'amateur', 'advanced'];
+    this.levels = LanguageLevels;
   }
 
   ngOnInit(): void {
