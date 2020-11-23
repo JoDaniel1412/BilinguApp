@@ -1,7 +1,13 @@
 
 <!-- Header -->
-<h1 mat-dialog-title>{{user.name}} - {{calculateAge(user.age)}}</h1>
-<h4>{{user.sex | titlecase}} - {{user.country.name}}</h4>
+<div>
+  <h1  mat-dialog-title>{{user.name}} - {{calculateAge(user.age)}}
+    <span class="flag-icon mat-elevation-z2 {{getUserFlag(user.country.iso)}}"></span>
+  </h1>
+
+  <h4>{{user.sex | titlecase}} - {{user.country.name}}</h4>
+  <span class="spacer"></span>
+  </div>
 
 <!-- Content -->
 <mat-dialog-content>

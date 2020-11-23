@@ -44,4 +44,8 @@ export class ProfileComponent implements OnInit {
         console.log('Edited profile: ', result);
       });
   }
+
+  getUserFlag(iso) {
+    return 'flag-icon-' + iso.toLowerCase();
+  }
 }

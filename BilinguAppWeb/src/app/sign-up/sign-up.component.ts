@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Countries} from '../../data/home-view-sample';
 import {Router} from '@angular/router';
-import {ILanguage, IUserDetailed} from '../models/home-view-models';
+import {ICountry, ILanguage, IUserDetailed} from '../models/home-view-models';
 import {AuthService} from '../services/auth.service';
-import {Contacts, Hobbies, Sex} from '../../data/auth-sample';
+import {Contacts, CountryISO, Hobbies, Sex} from '../../data/auth-sample';
 
 @Component({
   selector: 'app-sign-up',
@@ -20,7 +20,7 @@ export class SignUpComponent implements OnInit {
   hobbiesFormGroup: string[];
   contactsFormGroup: string[];
 
-  countries: string[];
+  countries: ICountry[];
   hide = true;
   sex: string [];
   hobbies: string[];
@@ -33,7 +33,7 @@ export class SignUpComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private router: Router,
               private authService: AuthService) {
-    this.countries = Countries;
+    this.countries = CountryISO;
     this.sex = Sex;
     this.learningLanguage = [];
     this.teachingLanguage = [];

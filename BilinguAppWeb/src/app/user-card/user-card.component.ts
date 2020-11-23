@@ -33,4 +33,8 @@ export class UserCardComponent implements OnInit {
         });
     });
   }
+
+  getUserFlag(iso) {
+    return 'flag-icon-' + iso.toLowerCase();
+  }
 }

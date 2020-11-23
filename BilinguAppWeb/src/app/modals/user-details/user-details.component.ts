@@ -25,4 +25,8 @@ export class UserDetailsComponent {
     const date = new Date(birthday);
     return today.getFullYear() - date.getFullYear();
   }
+
+  getUserFlag(iso) {
+    return 'flag-icon-' + iso.toLowerCase();
+  }
 }

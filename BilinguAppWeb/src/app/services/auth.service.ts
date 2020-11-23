@@ -68,8 +68,8 @@ export class AuthService {
         userData.uid = user.uid;
         this.postUser(userData).subscribe(result => {
           console.log('POST user result:', result);
+          return true;
         });
-        return true;
       });
     } catch (error) {
       console.log('Sign up failed', error);

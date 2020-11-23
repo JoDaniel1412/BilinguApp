@@ -15,9 +15,6 @@ export const Countries = ['Argentina', 'Brasil', 'Canada', 'Chile', 'Colombia', 
   'Honduras', 'Jamaica', 'Mexico', 'Panama', 'Deutschland', 'Greek', 'Italy', 'Spain', 'Portugal', 'France', 'China',
   'Russia', 'Japan'];
 
-export const ISO = ['AR', 'BR', 'CA', 'CL', 'CO', 'CR', 'US', 'GT', 'HN', 'JM', 'MX', 'PA', 'DE', 'GR', 'IT',
-  'ES', 'PT', 'FR', 'CN', 'RU', 'JP', 'IN'];
-
 export const User = {
   uid: '',
   email: 'jess@email.com',
