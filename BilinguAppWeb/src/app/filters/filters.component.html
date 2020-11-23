@@ -9,7 +9,10 @@
     Learning
   </div>
   <mat-list-item *ngFor="let language of learning">
-    <mat-checkbox>{{language.language | titlecase}}</mat-checkbox>
+    <mat-checkbox #learningLanguage>
+      {{language.language | titlecase}} -
+      {{language.level | titlecase}}
+    </mat-checkbox>
   </mat-list-item>
 
   <!-- Teaching languages -->
@@ -19,16 +22,19 @@
   </div>
   <mat-divider></mat-divider>
   <mat-list-item *ngFor="let language of teaching">
-    <mat-checkbox>{{language.language | titlecase}}</mat-checkbox>
+    <mat-checkbox #teachingLanguage>
+      {{language.language | titlecase}} -
+      {{language.level | titlecase}}
+    </mat-checkbox>
   </mat-list-item>
 
   <!-- Country select -->
   <mat-divider></mat-divider>
   <div mat-subheader>Country</div>
   <mat-form-field appearance="fill" color="accent">
-    <mat-select placeholder="Select a country">
+    <mat-select  #country placeholder="Select a country">
       <mat-option *ngFor="let country of countries" [value]="country">
-        {{country | titlecase}}
+        {{country.name | titlecase}}
       </mat-option>
     </mat-select>
   </mat-form-field>
@@ -37,6 +43,12 @@
   <mat-divider></mat-divider>
   <div mat-subheader>Age</div>
   <div class="slider">
-    18 <mat-slider min="18" max="90" thumbLabel></mat-slider> 90
+    18 <mat-slider #age min="18" max="90" thumbLabel></mat-slider> 90
   </div>
+
+  <br>
+  <button mat-raised-button color="primary" class="search"
+          (click)="search()">
+    Search
+  </button>
 </mat-list>

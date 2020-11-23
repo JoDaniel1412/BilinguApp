@@ -1,7 +1,7 @@
 
 <mat-drawer-container class="example-container">
   <mat-drawer #drawer [mode]="'side'">
-    <app-filters></app-filters>
+    <app-filters (filterEmitter)="fetchUsersOrigin($event)"></app-filters>
   </mat-drawer>
 
   <mat-drawer-content>

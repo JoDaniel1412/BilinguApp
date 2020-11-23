@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
-import {IUserDetailed, IUserSimplify} from '../models/home-view-models';
+import {ICountry, ILanguage, IUserDetailed, IUserSimplify} from '../models/home-view-models';
 
 @Injectable({
   providedIn: 'root'
@@ -20,17 +20,17 @@ export class HomeViewService {
     return this.http.get<IUserDetailed[][]>(path, {params});
   }
 
-  getUsers(learning: string[] = [],
-           teaching: string[] = [],
-           country: string[] = [],
+  getUsers(learning: ILanguage[] = [],
+           teaching: ILanguage[] = [],
+           country: ICountry[] = [],
            age: number[] = [0, 99])
     : Observable<IUserSimplify[][]> {
     const path = environment.api + this.url + 'users';
     const params = new HttpParams()
-      .append('learning', '[' + learning.toString() + ']')
-      .append('teaching', '[' + teaching.toString() + ']')
-      .append('country', '[' + country.toString() + ']')
-      .append('age', '[' + age.toString() + ']');
+      .append('learning', JSON.stringify(learning))
+      .append('teaching', JSON.stringify(teaching))
+      .append('country', JSON.stringify(country))
+      .append('age', JSON.stringify(age));
     console.log(path, params);
     return this.http.get<IUserSimplify[][]>(path, {params});
   }
