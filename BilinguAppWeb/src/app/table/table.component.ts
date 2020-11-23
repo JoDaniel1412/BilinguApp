@@ -3,11 +3,20 @@ import {MatTable, MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
 import {FormControl} from '@angular/forms';
+import {IUsersOrigin} from '../models/admin-view-models';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.sass']
+  styleUrls: ['./table.component.sass'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ])
+  ]
 })
 export class TableComponent implements AfterViewInit  {
 
@@ -19,6 +28,7 @@ export class TableComponent implements AfterViewInit  {
   @Input() hasDate = true;
   @Input() filterName: string;
   @Input() filterOptions: string[];
+  @Input() detailsSubHeader: string;
 
   @Output() filterEmitter = new EventEmitter<{startDate: Date, endDate: Date, options?: string}>();
 
@@ -31,6 +41,7 @@ export class TableComponent implements AfterViewInit  {
   startDate: Date;
   endDate: Date;
   filterSelected: string;
+  expandedElement: any | null;
 
   constructor() { }
 

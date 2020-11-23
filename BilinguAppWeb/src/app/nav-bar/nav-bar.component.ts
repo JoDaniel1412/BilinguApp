@@ -14,6 +14,7 @@ import {HomeViewService} from '../services/home-view.service';
 })
 export class NavBarComponent implements OnInit {
 
+  userEmail = '';
   private userDetailed: IUserDetailed;
 
   constructor(private router: Router,
@@ -23,6 +24,11 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
     // this.userDetailed = User;
+    this.authService.signedIn.subscribe(user => {
+      if (user) {
+        this.userEmail = user.email;
+      }
+    });
   }
 
   goHome() {
@@ -56,6 +62,7 @@ export class NavBarComponent implements OnInit {
   }
 
   signOut() {
+    this.userEmail = '';
     this.authService.signOut();
     this.router.navigate(['/auth']);
   }

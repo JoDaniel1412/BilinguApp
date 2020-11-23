@@ -43,7 +43,8 @@ export class AdminViewComponent implements OnInit {
         const newUser = {
           uid: value.uid,
           name: value.name,
-          country: value.country.name
+          country: value.country.name,
+          details: value.learning
         };
         usersOrigin.push(newUser);
       });

@@ -10,7 +10,7 @@
   <!-- Hobbies -->
   <app-chips-panel [title]="'Hobbies & Interest'"
                    [placeholder]="'hiking'"
-                   [expanded]="step === 0"
+                   [expanded]="true"
                    (openEmitter)="setStep(0)"
                    [editable]="true"
                    [options]="hobbies">
@@ -19,7 +19,7 @@
   <!-- Contacts -->
   <app-chips-panel [title]="'Contacts'"
                    [placeholder]="'facebook'"
-                   [expanded]="step === 1"
+                   [expanded]="true"
                    (openEmitter)="setStep(1)"
                    [editable]="true"
                    [options]="contacts">

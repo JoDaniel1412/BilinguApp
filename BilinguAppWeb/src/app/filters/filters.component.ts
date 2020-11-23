@@ -72,7 +72,7 @@ export class FiltersComponent implements OnInit {
       }
     });
     if (this.countrySelected.value) {
-      country = [this.countrySelected.value];
+      country = this.countrySelected.value;
     }
     age = [this.ageSelected.min, this.ageSelected.value];
 
