@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {IUserSimplify} from '../models/home-view-models';
+import {ICountry, ILanguage, IUserSimplify} from '../models/home-view-models';
 import {HomeViewService} from '../services/home-view.service';
 import {Users} from '../../data/home-view-sample';
 
@@ -18,13 +18,27 @@ export class HomeViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fetchUsersOrigin();
+    this.fetchUsersOrigin({learning: [], teaching: [], country: [], age: [0, 99]});
   }
 
-  fetchUsersOrigin() {
-    this.homeViewService.getUsers().subscribe(data => {
-      this.users = this.extractData(data);
-    });
+  fetchUsersOrigin(event: {
+    learning: ILanguage[],
+    teaching: ILanguage[],
+    country: ICountry[],
+    age: number[]}) {
+    if (event) {
+      console.log('Filters: ', event);
+      this.homeViewService
+        .getUsers(event.learning, event.teaching, event.country, event.age)
+        .subscribe(data => {
+          this.users = this.extractData(data);
+        });
+    }
+    else {
+      this.homeViewService.getUsers().subscribe(data => {
+        this.users = this.extractData(data);
+      });
+    }
   }
 
   private extractData(data: any[]) {

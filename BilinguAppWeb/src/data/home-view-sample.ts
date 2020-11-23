@@ -1,14 +1,14 @@
 
 export const Learning = [
-  {name: 'spanish', level: 'amateur'},
-  {name: 'english', level: 'amateur'},
-  {name: 'chinese', level: 'amateur'},
+  {language: 'spanish', level: 'amateur'},
+  {language: 'english', level: 'amateur'},
+  {language: 'chinese', level: 'amateur'},
 ];
 
 export const Teaching = [
-  {name: 'japanese', level: 'pro'},
-  {name: 'russian', level: 'average'},
-  {name: 'portuguese', level: 'average'},
+  {language: 'japanese', level: 'pro'},
+  {language: 'russian', level: 'average'},
+  {language: 'portuguese', level: 'average'},
 ];
 
 export const Countries = ['Argentina', 'Brasil', 'Canada', 'Chile', 'Colombia', 'Costa Rica', 'United States', 'Guatemala',
