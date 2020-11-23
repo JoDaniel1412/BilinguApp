@@ -1,3 +1,4 @@
+import {ILanguage} from './home-view-models';
 
 export interface IUsersOrigin {
   uid: string;
@@ -6,6 +7,7 @@ export interface IUsersOrigin {
     name: string,
     iso: string
   };
+  learning: ILanguage;
 }
 
 export interface IUsersPerCountry {

@@ -22,7 +22,7 @@ export class HomeViewService {
 
   getUsers(learning: ILanguage[] = [],
            teaching: ILanguage[] = [],
-           country: ICountry[] = [],
+           country= [],
            age: number[] = [0, 99])
     : Observable<IUserSimplify[][]> {
     const path = environment.api + this.url + 'users';

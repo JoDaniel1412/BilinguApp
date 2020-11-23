@@ -33,6 +33,7 @@
   <div mat-subheader>Country</div>
   <mat-form-field appearance="fill" color="accent">
     <mat-select  #country placeholder="Select a country">
+      <mat-option>None</mat-option>
       <mat-option *ngFor="let country of countries" [value]="country">
         {{country.name | titlecase}}
       </mat-option>
@@ -43,7 +44,7 @@
   <mat-divider></mat-divider>
   <div mat-subheader>Age</div>
   <div class="slider">
-    18 <mat-slider #age min="18" max="90" thumbLabel></mat-slider> 90
+    0 <mat-slider #age min="0" max="99" thumbLabel [value]="99"></mat-slider> 90
   </div>
 
   <br>

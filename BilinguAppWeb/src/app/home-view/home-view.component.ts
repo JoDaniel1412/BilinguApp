@@ -31,11 +31,13 @@ export class HomeViewComponent implements OnInit {
       this.homeViewService
         .getUsers(event.learning, event.teaching, event.country, event.age)
         .subscribe(data => {
+          console.log('Users: ', data);
           this.users = this.extractData(data);
         });
     }
     else {
       this.homeViewService.getUsers().subscribe(data => {
+        console.log('Users: ', data);
         this.users = this.extractData(data);
       });
     }

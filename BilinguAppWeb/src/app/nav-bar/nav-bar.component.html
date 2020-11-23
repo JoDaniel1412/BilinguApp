@@ -20,6 +20,8 @@
     <mat-icon>account_circle</mat-icon>
   </button>
   <mat-menu #user="matMenu">
+    <div matSubheader>{{userEmail}}</div>
+    <mat-divider></mat-divider>
     <button mat-menu-item (click)="editProfile()">Edit profile</button>
     <button mat-menu-item (click)="signOut()">Sign out</button>
   </mat-menu>
