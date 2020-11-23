@@ -38,7 +38,7 @@ Go to BilinguAppWeb [README.md](BilinguAppWeb/README.md)
 
 ## License 📄
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/JoDaniel1412/eBike/blob/main/LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments 📎
 
