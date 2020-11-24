@@ -1,7 +1,7 @@
 import {ICountry} from '../app/models/home-view-models';
 
 export const Languages = [
-  'japanese', 'spanish', 'russian', 'english', 'italian', 'latin'
+  'Japanese', 'Spanish', 'Russian', 'English', 'Italian', 'Latin'
 ];
 
 export const Sex = ['Male', 'Female', 'Unspecified'];
