@@ -10,7 +10,7 @@ export const  Hobbies = ['Movies', 'Video Games', 'Pets'];
 
 export const Contacts = ['Skype', 'WhatsApp', 'BilinguApp', 'Person'];
 
-export const LanguageLevels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+export const LanguageLevels = ['principiante', 'intermedio', 'avanzado'];
 
 export const Countries = ['Argentina', 'Brasil', 'Canada', 'Chile', 'Colombia', 'Costa Rica', 'United States', 'Guatemala',
   'Honduras', 'Jamaica', 'Mexico', 'Panama', 'Deutschland', 'Greek', 'Italy', 'Spain', 'Portugal', 'France', 'China',
